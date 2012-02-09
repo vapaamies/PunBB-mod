@@ -1,0 +1,11 @@
+/cache
+extensions/*
+img/*
+include/js/min
+include/user
+/style
+
+/*.js
+/*.html
+/*.txt
+/config.php
