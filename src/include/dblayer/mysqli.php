@@ -2,7 +2,7 @@
 /**
  * A database layer class that relies on the MySQLi PHP extension.
  *
- * @copyright (C) 2008-2012 PunBB, partially based on code (C) 2008-2009 FluxBB.org
+ * @copyright (C) 2008-2016 PunBB, partially based on code (C) 2008-2009 FluxBB.org
  * @license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  * @package PunBB
  */
@@ -24,7 +24,7 @@ class DBLayer
         '/^SERIAL$/' => 'INT(10) UNSIGNED AUTO_INCREMENT'
     );
 
-    function DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $foo)
+    function __construct($db_host, $db_username, $db_password, $db_name, $db_prefix, $foo)
     {
         $this->prefix = $db_prefix;
 
@@ -59,7 +59,7 @@ class DBLayer
 
     function query($sql, $unbuffered = false)
     {
-        if (strlen($sql) > 140000)
+        if (strlen($sql) > FORUM_DATABASE_QUERY_MAXIMUM_LENGTH)
             exit('Insane query. Aborting.');
 
         if (defined('FORUM_SHOW_QUERIES') || defined('FORUM_DEBUG'))
@@ -344,7 +344,7 @@ class DBLayer
         if ($default_value !== null && !is_int($default_value) && !is_float($default_value))
             $default_value = '\''.$this->escape($default_value).'\'';
 
-        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' ADD '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field != null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
+        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' ADD '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field !== null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
     }
 
     function alter_field($table_name, $field_name, $field_type, $allow_null, $default_value = null, $after_field = null, $no_prefix = false)
@@ -357,7 +357,7 @@ class DBLayer
         if ($default_value !== null && !is_int($default_value) && !is_float($default_value))
             $default_value = '\''.$this->escape($default_value).'\'';
 
-        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' MODIFY '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field != null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
+        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' MODIFY '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field !== null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
     }
 
     function drop_field($table_name, $field_name, $no_prefix = false)

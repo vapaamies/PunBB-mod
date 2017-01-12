@@ -9,22 +9,19 @@
 
 class FlashMessenger
 {
-    const TEMPLATE_MSG_BLOCK = '%s';
-    const TEMPLATE_MSG = '<span class="%s">%s</span>';
+    const TEMPLATE_MSG_BLOCK    = '%s';
+    const TEMPLATE_MSG          = '<span class="%s">%s</span>';
 
-    //
-    const MSG_TYPE_ERROR = 'message_error';
-    const MSG_TYPE_WARNING = 'message_warning';
-    const MSG_TYPE_INFO = 'message_info';
+    const MSG_TYPE_ERROR        = 'message_error';
+    const MSG_TYPE_WARNING      = 'message_warning';
+    const MSG_TYPE_INFO         = 'message_info';
 
-    //
     private $message;
 
     public function __construct()
     {
         global $forum_config;
 
-        // Do not use with redirect
         $disabled = isset($forum_config['o_redirect_delay']) && intval($forum_config['o_redirect_delay'], 10) > 0;
 
         if (!$disabled)
@@ -35,25 +32,21 @@ class FlashMessenger
         $this->message = $this->get_message();
     }
 
-    // Add error message
     public function add_error($msg)
     {
         $this->add_message($msg, self::MSG_TYPE_ERROR);
     }
 
-    // Add warning message
     public function add_warning($msg)
     {
         $this->add_message($msg, self::MSG_TYPE_WARNING);
     }
 
-    // Add info message
     public function add_info($msg)
     {
         $this->add_message($msg, self::MSG_TYPE_INFO);
     }
 
-    //
     public function show($just_return = false)
     {
         if (empty($this->message))
@@ -72,14 +65,12 @@ class FlashMessenger
         $this->clear();
     }
 
-    //
-    private function clear()
+    public function clear()
     {
         $this->message = NULL;
         $this->save_message();
     }
 
-    //
     private function add_message($message, $type)
     {
         $this->message = array($message, $type);
@@ -91,7 +82,7 @@ class FlashMessenger
         $_SESSION['punbb_forum_flash'] = serialize($this->message);
     }
 
-    private function get_message()
+    public function get_message()
     {
         $message = NULL;
 
@@ -110,6 +101,3 @@ class FlashMessenger
         return $message;
     }
 }
-
-// Create the flash messenger adapter object
-$forum_flash = new FlashMessenger();

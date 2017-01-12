@@ -169,4 +169,8 @@ $lang_common = array(
 'Forum error db reported' => 'База данных:',
 'Forum error db query' => 'Запрос с ошибкой:',
 
+// Menu
+'Menu admin' => 'Администрирование',
+'Menu profile' => 'Профиль',
+
 );

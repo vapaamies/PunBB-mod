@@ -7,11 +7,6 @@
  * @package PunBB
  */
 
-if (!defined('FORUM_SEARCH_MIN_WORD'))
-    define('FORUM_SEARCH_MIN_WORD', 3);
-if (!defined('FORUM_SEARCH_MAX_WORD'))
-    define('FORUM_SEARCH_MAX_WORD', 20);
-
 //
 // Cache the results of a search and redirect the user to the results page
 //
@@ -20,7 +15,7 @@ function create_search_cache($keywords, $author, $search_in = false, $forum = ar
     global $forum_db, $forum_user, $forum_config, $forum_url, $lang_search, $lang_common, $db_type;
 
     $return = ($hook = get_hook('sf_fn_create_search_cache_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return;
 
     if (utf8_strlen(str_replace(array('*', '%'), '', $author)) < 2)
@@ -286,7 +281,7 @@ function create_search_cache($keywords, $author, $search_in = false, $forum = ar
     $forum_db->query_build($query) or error(__FILE__, __LINE__);
 
     $return = ($hook = get_hook('sf_fn_create_search_cache_end')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return;
 
     $forum_db->end_transaction();
@@ -305,7 +300,7 @@ function generate_cached_search_query($search_id, &$show_as)
     global $forum_db, $db_type, $forum_user, $forum_config;
 
     $return = ($hook = get_hook('sf_fn_generate_cached_search_query_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return $return;
 
     $ident = ($forum_user['is_guest']) ? get_remote_address() : $forum_user['username'];
@@ -423,7 +418,7 @@ function generate_action_search_query($action, $value, &$search_id, &$url_type, 
     global $forum_db, $forum_user, $forum_config, $lang_common, $forum_url, $db_type;
 
     $return = ($hook = get_hook('sf_fn_generate_action_search_query_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return $return;
 
     switch ($action)
@@ -727,7 +722,7 @@ function get_search_results($query, &$search_set)
     global $forum_db, $forum_user, $forum_page, $lang_common;
 
     $return = ($hook = get_hook('sf_fn_get_search_results_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return $return;
 
     $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
@@ -765,7 +760,7 @@ function get_search_results($query, &$search_set)
     $forum_db->free_result($result);
 
     $return = ($hook = get_hook('sf_fn_get_search_results_end')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return $return;
 
     return $num_hits;
@@ -781,7 +776,7 @@ function no_search_results($action = 'search')
     $forum_page['search_again'] = '<a href="'.forum_link($forum_url['search']).'">'.$lang_search['Perform new search'].'</a>';
 
     $return = ($hook = get_hook('sf_fn_no_search_results_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return;
 
     switch ($action)
@@ -828,7 +823,7 @@ function generate_search_crumbs($action = null)
     global $forum_page, $lang_common, $lang_search, $forum_url, $forum_user, $num_hits, $search_set, $search_id, $show_as;
 
     $return = ($hook = get_hook('sf_fn_generate_search_crumbs_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return;
 
     switch ($action)
@@ -900,7 +895,7 @@ function validate_search_action($action)
     $valid_actions = array('search', 'show_new', 'show_recent', 'show_user_posts', 'show_user_topics', 'show_subscriptions', 'show_forum_subscriptions', 'show_unanswered');
 
     $return = ($hook = get_hook('sf_fn_validate_actions_start')) ? eval($hook) : null;
-    if ($return != null)
+    if ($return !== null)
         return $return;
 
     return in_array($action, $valid_actions);

@@ -2,7 +2,7 @@
 /**
  * A database layer class that relies on the SQLite PHP extension.
  *
- * @copyright (C) 2008-2012 PunBB, partially based on code (C) 2008-2009 FluxBB.org
+ * @copyright (C) 2008-2016 PunBB, partially based on code (C) 2008-2009 FluxBB.org
  * @license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  * @package PunBB
  */
@@ -30,7 +30,7 @@ class DBLayer
         '/^(TINY|MEDIUM|LONG)?TEXT$/i' => 'TEXT'
     );
 
-    function DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect)
+    function __construct($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect)
     {
         // Prepend $db_name with the path to the forum root directory
         $db_name = FORUM_ROOT.$db_name;
@@ -59,6 +59,11 @@ class DBLayer
             return $this->link_id;
     }
 
+    function __destruct()
+    {
+        $this->close();
+    }
+
     function start_transaction()
     {
         ++$this->in_transaction;
@@ -81,7 +86,7 @@ class DBLayer
 
     function query($sql, $unbuffered = false)
     {
-        if (strlen($sql) > 140000)
+        if (strlen($sql) > FORUM_DATABASE_QUERY_MAXIMUM_LENGTH)
             exit('Insane query. Aborting.');
 
         if (defined('FORUM_SHOW_QUERIES') || defined('FORUM_DEBUG'))

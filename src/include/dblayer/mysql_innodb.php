@@ -2,7 +2,7 @@
 /**
  * A database layer class that relies on the MySQL PHP extension.
  *
- * @copyright (C) 2008-2012 PunBB, partially based on code (C) 2008-2009 FluxBB.org
+ * @copyright (C) 2008-2016 PunBB, partially based on code (C) 2008-2009 FluxBB.org
  * @license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  * @package PunBB
  */
@@ -25,7 +25,7 @@ class DBLayer
         '/^SERIAL$/' => 'INT(10) UNSIGNED AUTO_INCREMENT'
     );
 
-    function DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect)
+    function __construct($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect)
     {
         $this->prefix = $db_prefix;
 
@@ -47,6 +47,11 @@ class DBLayer
             $this->set_names('utf8');
 
         return $this->link_id;
+    }
+
+    function __destruct()
+    {
+        $this->close();
     }
 
     function start_transaction()
@@ -71,7 +76,7 @@ class DBLayer
 
     function query($sql, $unbuffered = false)
     {
-        if (strlen($sql) > 140000)
+        if (strlen($sql) > FORUM_DATABASE_QUERY_MAXIMUM_LENGTH)
             exit('Insane query. Aborting.');
 
         if (defined('FORUM_SHOW_QUERIES') || defined('FORUM_DEBUG'))
@@ -239,6 +244,14 @@ class DBLayer
     {
         if ($this->link_id)
         {
+            if ($this->in_transaction)
+            {
+                if (defined('FORUM_SHOW_QUERIES') || defined('FORUM_DEBUG'))
+                    $this->saved_queries[] = array('COMMIT', 0);
+
+                @mysqli_query($this->link_id, 'COMMIT');
+            }
+
             if ($this->query_result)
                 @mysql_free_result($this->query_result);
 
@@ -360,7 +373,7 @@ class DBLayer
         if ($default_value !== null && !is_int($default_value) && !is_float($default_value))
             $default_value = '\''.$this->escape($default_value).'\'';
 
-        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' ADD '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field != null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
+        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' ADD '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field !== null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
     }
 
     function alter_field($table_name, $field_name, $field_type, $allow_null, $default_value = null, $after_field = null, $no_prefix = false)
@@ -373,7 +386,7 @@ class DBLayer
         if ($default_value !== null && !is_int($default_value) && !is_float($default_value))
             $default_value = '\''.$this->escape($default_value).'\'';
 
-        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' MODIFY '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field != null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
+        $this->query('ALTER TABLE '.($no_prefix ? '' : $this->prefix).$table_name.' MODIFY '.$field_name.' '.$field_type.($allow_null ? ' ' : ' NOT NULL').($default_value !== null ? ' DEFAULT '.$default_value : ' ').($after_field !== null ? ' AFTER '.$after_field : '')) or error(__FILE__, __LINE__);
     }
 
     function drop_field($table_name, $field_name, $no_prefix = false)

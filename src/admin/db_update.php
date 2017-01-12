@@ -9,7 +9,7 @@
  * @package PunBB
  */
 
-define('UPDATE_TO', '1.4.2');
+define('UPDATE_TO', '1.4.4');
 define('UPDATE_TO_DB_REVISION', 5);
 
 // The number of items to process per pageview (lower this if the update script times out during UTF-8 conversion)
@@ -22,6 +22,8 @@ if (!function_exists('version_compare') || version_compare(PHP_VERSION, '5.0.0',
     exit('You are running PHP version '.PHP_VERSION.'. '.UPDATE_TO.' requires at least PHP 5.0.0 to run properly. You must upgrade your PHP installation before you can continue.');
 
 define('FORUM_ROOT', '../');
+
+require FORUM_ROOT.'include/constants.php';
 
 // Attempt to load the configuration file config.php
 if (file_exists(FORUM_ROOT.'config.php'))
@@ -37,12 +39,6 @@ if (!defined('FORUM'))
 // Enable debug mode
 if (!defined('FORUM_DEBUG'))
     define('FORUM_DEBUG', 1);
-
-// Define avatars type
-define('FORUM_AVATAR_NONE', 0);
-define('FORUM_AVATAR_GIF', 1);
-define('FORUM_AVATAR_JPG', 2);
-define('FORUM_AVATAR_PNG', 3);
 
 // Turn on full PHP error reporting
 error_reporting(E_ALL);
