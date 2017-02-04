@@ -11,12 +11,13 @@ $lang_misc = array(
 'Form e-mail errors' => '<strong>Внимание!</strong> Исправьте следующие ошибки для отправки вашего письма:',
 'No e-mail subject' => 'Необходимо ввести тему письма.',
 'No e-mail message' => 'Необходимо ввести текст письма.',
+'Too long e-mail subject' => 'Тема не может быть длиннее %s символов.',
 'Too long e-mail message' => 'Длина вашего сообщения — %s байт. Это превышает лимит форума в %s байт.',
 'Email flood' => 'Должно пройти не менее %s секунд между отправками писем. Пожалуйста, подождите немного и попробуйте ещё раз.',
 'E-mail sent redirect' => 'Письмо отправлено.',
 'E-mail subject' => 'Тема',
 'E-mail message' => 'Сообщение',
-'E-mail disclosure note' => '<strong>Важно!</strong> При отправке письма через эту форму ваш адрес электронной почты будет виден получателю.',
+'E-mail disclosure note' => '<strong>Важно!</strong> При отправке письма через эту форму адрес вашей электронной почты будет виден получателю.',
 'Write e-mail' => 'Составьте письмо',
 'Send forum e-mail' => 'Отправить письмо %s, используя форум',
 
@@ -50,7 +51,7 @@ $lang_misc = array(
 'Show more users' => 'Показать пользователей с этим IP',
 
 // Moderate forum
-'Moderate forum head' => 'Модерирование : %s',
+'Moderate forum head' => 'Модерирование раздела «%s»',
 'Topics' => 'Темы',
 'Move topic' => 'Перенести тему',
 'Move topics' => 'Перенести темы',
@@ -84,7 +85,7 @@ $lang_misc = array(
 'Delete posts' => 'Удалить выбранные сообщения',
 'Split posts' => 'Разделить выбранные сообщения',
 'Delete whole topic' => 'Удалить всю тему',
-'Moderate topic head' => 'Модерирование темы: %s',
+'Moderate topic head' => 'Модерирование темы «%s»',
 'New subject' => 'Новый заголовок темы:',
 'Select post' => 'Выбрать сообщение',
 'Confirm post delete' => 'Подтверждение удаления выбранных сообщений',

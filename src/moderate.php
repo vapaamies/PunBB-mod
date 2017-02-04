@@ -537,7 +537,7 @@ if (isset($_GET['tid']))
         $forum_page['post_ident']['link'] = '<span class="post-link"><a class="permalink" rel="bookmark" title="'.$lang_topic['Permalink post'].'" href="'.forum_link($forum_url['post'], $cur_post['id']).'">'.format_time($cur_post['posted']).'</a></span>';
 
         if ($cur_post['edited'] != '')
-            $forum_page['post_ident']['edited'] = '<span class="post-edit">'.sprintf($lang_topic['Last edited'], forum_htmlencode($cur_post['edited_by']), format_time($cur_post['edited'])).'</span>';
+            $forum_page['post_ident']['edited'] = '<span class="post-edit">'.sprintf($lang_topic['Last edited'], forum_htmlencode($cur_post['edited_by']), format_time($cur_post['edited'], FORUM_FT_INLINE)).'</span>';
 
         ($hook = get_hook('mr_row_pre_item_ident_merge')) ? eval($hook) : null;
 

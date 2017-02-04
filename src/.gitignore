@@ -1,5 +1,5 @@
 /cache
-extensions/*
+extensions/pun_attachment/attachments
 img/*
 include/js/min
 include/user
@@ -9,3 +9,4 @@ include/user
 /*.html
 /*.txt
 /config.php
+/favicon.ico

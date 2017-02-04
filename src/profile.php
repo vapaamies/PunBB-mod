@@ -446,7 +446,7 @@ else if ($action == 'change_email')
             else if ($forum_config['o_mailing_list'] != '')
             {
                 $mail_subject = 'Alert - Banned e-mail detected';
-                $mail_message = 'User \''.$forum_user['username'].'\' changed to banned e-mail address: '.$new_email."\n\n".'User profile: '.forum_link($forum_url['user'], $id)."\n\n".'-- '."\n".'Forum Mailer'."\n".'(Do not reply to this message)';
+                $mail_message = 'User \''.$forum_user['username'].'\' changed to banned e-mail address: '.$new_email."\n\n".'User profile: '.global_link(forum_link($forum_url['user'], $id))."\n\n".'-- '."\n".'Forum Mailer'."\n".'(Do not reply to this message)';
 
                 forum_mail($forum_config['o_mailing_list'], $mail_subject, $mail_message);
             }
@@ -477,7 +477,7 @@ else if ($action == 'change_email')
             else if (($forum_config['o_mailing_list'] != '') && empty($errors))
             {
                 $mail_subject = 'Alert - Duplicate e-mail detected';
-                $mail_message = 'User \''.$forum_user['username'].'\' changed to an e-mail address that also belongs to: '.implode(', ', $dupe_list)."\n\n".'User profile: '.forum_link($forum_url['user'], $id)."\n\n".'-- '."\n".'Forum Mailer'."\n".'(Do not reply to this message)';
+                $mail_message = 'User \''.$forum_user['username'].'\' changed to an e-mail address that also belongs to: '.implode(', ', $dupe_list)."\n\n".'User profile: '.global_link(forum_link($forum_url['user'], $id))."\n\n".'-- '."\n".'Forum Mailer'."\n".'(Do not reply to this message)';
 
                 forum_mail($forum_config['o_mailing_list'], $mail_subject, $mail_message);
             }
@@ -524,8 +524,8 @@ else if ($action == 'change_email')
             $mail_message = forum_trim(substr($mail_tpl, $first_crlf));
 
             $mail_message = str_replace('<username>', $forum_user['username'], $mail_message);
-            $mail_message = str_replace('<base_url>', $base_url.'/', $mail_message);
-            $mail_message = str_replace('<activation_url>', str_replace('&amp;', '&', forum_link($forum_url['change_email_key'], array($id, $new_email_key))), $mail_message);
+            $mail_message = str_replace('<base_url>', global_link('/'), $mail_message);
+            $mail_message = str_replace('<activation_url>', str_replace('&amp;', '&', global_link(forum_link($forum_url['change_email_key'], array($id, $new_email_key)))), $mail_message);
             $mail_message = str_replace('<board_mailer>', sprintf($lang_common['Forum mailer'], $forum_config['o_board_title']), $mail_message);
 
             ($hook = get_hook('pf_change_email_normal_pre_activation_email_sent')) ? eval($hook) : null;
@@ -1403,7 +1403,7 @@ if ($forum_user['id'] != $id &&
     if ($user['location'] !='')
         $forum_page['user_info']['location'] = '<li><span>'.$lang_profile['From'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['location']) : $user['location']).'</strong></span></li>';
 
-    $forum_page['user_info']['registered'] = '<li><span>'.$lang_profile['Registered'].': <strong> '.format_time($user['registered'], 1).'</strong></span></li>';
+    $forum_page['user_info']['registered'] = '<li><span>'.$lang_profile['Registered'].': <strong> '.format_time($user['registered']).'</strong></span></li>';
     $forum_page['user_info']['lastpost'] = '<li><span>'.$lang_profile['Last post'].': <strong> '.format_time($user['last_post']).'</strong></span></li>';
 
     if ($forum_config['o_show_post_count'] == '1' || $forum_user['is_admmod'])
@@ -1464,7 +1464,7 @@ if ($forum_user['id'] != $id &&
             forum_htmlencode($user['facebook']) :
             forum_htmlencode('https://www.facebook.com/'.$user['facebook'])
         ;
-        $forum_page['facebook'] = '<a href="'.$facebook_url.'" class="external url">'.$facebook_url.'</a>';
+        $forum_page['facebook'] = '<a href="'.$facebook_url.'" class="external url">'.$user['facebook'].'</a>';
         $forum_page['user_contact']['facebook'] = '<li><span>'.$lang_profile['Facebook'].': '.$forum_page['facebook'].'</span></li>';
     }
 
@@ -1480,7 +1480,7 @@ if ($forum_user['id'] != $id &&
             forum_htmlencode($user['twitter']) :
             forum_htmlencode('https://twitter.com/'.$user['twitter'])
         ;
-        $forum_page['twitter'] = '<a href="'.$twitter_url.'" class="external url">'.$twitter_url.'</a>';
+        $forum_page['twitter'] = '<a href="'.$twitter_url.'" class="external url">'.$user['twitter'].'</a>';
         $forum_page['user_contact']['twitter'] = '<li><span>'.$lang_profile['Twitter'].': '.$forum_page['twitter'].'</span></li>';
     }
 
@@ -1498,15 +1498,15 @@ if ($forum_user['id'] != $id &&
     }
 
     if ($user['jabber'] !='')
-        $forum_page['user_contact']['jabber'] = '<li><span>'.$lang_profile['Jabber'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['jabber']) : $user['jabber']).'</strong></span></li>';
+        $forum_page['user_contact']['jabber'] = '<li><span>'.$lang_profile['Jabber'].': <a href="xmpp:'.$user['jabber'].'"> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['jabber']) : $user['jabber']).'</a></span></li>';
     if ($user['icq'] !='')
-        $forum_page['user_contact']['icq'] = '<li><span>'.$lang_profile['ICQ'].': <strong> '.forum_htmlencode($user['icq']).'</strong></span></li>';
+        $forum_page['user_contact']['icq'] = '<li><span>'.$lang_profile['ICQ'].': '.forum_htmlencode($user['icq']).'</strong></span></li>';
     if ($user['msn'] !='')
-        $forum_page['user_contact']['msn'] = '<li><span>'.$lang_profile['MSN'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['msn']) : $user['msn']).'</strong></span></li>';
+        $forum_page['user_contact']['msn'] = '<li><span>'.$lang_profile['MSN'].':'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['msn']) : $user['msn']).'</span></li>';
     if ($user['aim'] !='')
-        $forum_page['user_contact']['aim'] = '<li><span>'.$lang_profile['AOL IM'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['aim']) : $user['aim']).'</strong></span></li>';
+        $forum_page['user_contact']['aim'] = '<li><span>'.$lang_profile['AOL IM'].': '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['aim']) : $user['aim']).'</span></li>';
     if ($user['yahoo'] !='')
-        $forum_page['user_contact']['yahoo'] = '<li><span>'.$lang_profile['Yahoo'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['yahoo']) : $user['yahoo']).'</strong></span></li>';
+        $forum_page['user_contact']['yahoo'] = '<li><span>'.$lang_profile['Yahoo'].': '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['yahoo']) : $user['yahoo']).'</span></li>';
 
     // Setup signature demo
     if ($forum_config['o_signatures'] == '1' && isset($parsed_signature))
@@ -1667,7 +1667,7 @@ else
         if ($user['location'] !='')
             $forum_page['user_info']['location'] = '<li><span>'.$lang_profile['From'].': <strong> '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['location']) : $user['location']).'</strong></span></li>';
 
-        $forum_page['user_info']['registered'] = '<li><span>'.$lang_profile['Registered'].': <strong> '.format_time($user['registered'], 1).'</strong></span></li>';
+        $forum_page['user_info']['registered'] = '<li><span>'.$lang_profile['Registered'].': <strong> '.format_time($user['registered']).'</strong></span></li>';
         $forum_page['user_info']['lastvisit'] = '<li><span>'.$lang_profile['Last visit'].': <strong> '.format_time($user['last_visit']).'</strong></span></li>';
         $forum_page['user_info']['lastpost'] = '<li><span>'.$lang_profile['Last post'].': <strong> '.format_time($user['last_post']).'</strong></span></li>';
 
@@ -1739,7 +1739,7 @@ else
                 forum_htmlencode($user['facebook']) :
                 forum_htmlencode('https://www.facebook.com/'.$user['facebook'])
             ;
-            $forum_page['facebook'] = '<a href="'.$facebook_url.'" class="external url">'.$facebook_url.'</a>';
+            $forum_page['facebook'] = '<a href="'.$facebook_url.'" class="external url">'.$user['facebook'].'</a>';
             $forum_page['user_contact']['facebook'] = '<li><span>'.$lang_profile['Facebook'].': '.$forum_page['facebook'].'</span></li>';
         }
 
@@ -1755,7 +1755,7 @@ else
                 forum_htmlencode($user['twitter']) :
                 forum_htmlencode('https://twitter.com/'.$user['twitter'])
             ;
-            $forum_page['twitter'] = '<a href="'.$twitter_url.'" class="external url">'.$twitter_url.'</a>';
+            $forum_page['twitter'] = '<a href="'.$twitter_url.'" class="external url">'.$user['twitter'].'</a>';
             $forum_page['user_contact']['twitter'] = '<li><span>'.$lang_profile['Twitter'].': '.$forum_page['twitter'].'</span></li>';
         }
 
@@ -1777,17 +1777,17 @@ else
 
         // Setup user messaging
         if ($user['jabber'] !='')
-            $forum_page['user_contact']['jabber'] = '<li><span>'.$lang_profile['Jabber'].': <strong>'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['jabber']) : $user['jabber']).'</strong></span></li>';
+            $forum_page['user_contact']['jabber'] = '<li><span>'.$lang_profile['Jabber'].': <a href="xmpp:'.$user['jabber'].'">'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['jabber']) : $user['jabber']).'</a></span></li>';
         if ($user['skype'] !='')
-            $forum_page['user_contact']['skype'] = '<li><span>'.$lang_profile['Skype'].': <strong>'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['skype']) : $user['skype']).'</strong></span></li>';
+            $forum_page['user_contact']['skype'] = '<li><span>'.$lang_profile['Skype'].': <a href="skype:'.$user['skype'].'">'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['skype']) : $user['skype']).'</strong></span></li>';
         if ($user['icq'] !='')
-            $forum_page['user_contact']['icq'] = '<li><span>'.$lang_profile['ICQ'].': <strong>'.forum_htmlencode($user['icq']).'</strong></span></li>';
+            $forum_page['user_contact']['icq'] = '<li><span>'.$lang_profile['ICQ'].': '.forum_htmlencode($user['icq']).'</span></li>';
         if ($user['msn'] !='')
-            $forum_page['user_contact']['msn'] = '<li><span>'.$lang_profile['MSN'].': <strong>'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['msn']) : $user['msn']).'</strong></span></li>';
+            $forum_page['user_contact']['msn'] = '<li><span>'.$lang_profile['MSN'].': '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['msn']) : $user['msn']).'</span></li>';
         if ($user['aim'] !='')
-            $forum_page['user_contact']['aim'] = '<li><span>'.$lang_profile['AOL IM'].': <strong>'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['aim']) : $user['aim']).'</strong></span></li>';
+            $forum_page['user_contact']['aim'] = '<li><span>'.$lang_profile['AOL IM'].': '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['aim']) : $user['aim']).'</span></li>';
         if ($user['yahoo'] !='')
-            $forum_page['user_contact']['yahoo'] = '<li><span>'.$lang_profile['Yahoo'].': <strong>'.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['yahoo']) : $user['yahoo']).'</strong></span></li>';
+            $forum_page['user_contact']['yahoo'] = '<li><span>'.$lang_profile['Yahoo'].': '.forum_htmlencode(($forum_config['o_censoring'] == '1') ? censor_words($user['yahoo']) : $user['yahoo']).'</span></li>';
 
         // Setup signature demo
         if ($forum_config['o_signatures'] == '1' && isset($parsed_signature))
@@ -2243,6 +2243,7 @@ if ($forum_page['has_required']): ?>
                         <option value="-7"<?php if ($user['timezone'] == -7) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-07:00'] ?></option>
                         <option value="-6"<?php if ($user['timezone'] == -6) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-06:00'] ?></option>
                         <option value="-5"<?php if ($user['timezone'] == -5) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-05:00'] ?></option>
+                        <option value="-4.5"<?php if ($user['timezone'] == -4.5) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-04:30'] ?></option>
                         <option value="-4"<?php if ($user['timezone'] == -4) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-04:00'] ?></option>
                         <option value="-3.5"<?php if ($user['timezone'] == -3.5) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-03:30'] ?></option>
                         <option value="-3"<?php if ($user['timezone'] == -3) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-03:00'] ?></option>
@@ -2295,7 +2296,7 @@ if ($forum_page['has_required']): ?>
             echo "\t\t\t\t\t\t".'<option value="'.$key.'"';
             if ($user['time_format'] == $key)
                 echo ' selected="selected"';
-            echo '>'. format_time(time(), 2, null, $time_format);
+            echo '>'. format_time(time(), FORUM_FT_TIME, null, $time_format);
             if ($key == 0)
                 echo ' ('.$lang_profile['Default'].')';
             echo "</option>\n";
@@ -2317,7 +2318,7 @@ if ($forum_page['has_required']): ?>
             echo "\t\t\t\t\t\t\t".'<option value="'.$key.'"';
             if ($user['date_format'] == $key)
                 echo ' selected="selected"';
-            echo '>'. format_time(time(), 1, $date_format, null, true);
+            echo '>'. format_time(time(), FORUM_FT_DATE, $date_format, null, true);
             if ($key == 0)
                 echo ' ('.$lang_profile['Default'].')';
             echo "</option>\n";

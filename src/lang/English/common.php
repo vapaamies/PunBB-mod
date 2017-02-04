@@ -30,8 +30,11 @@ $lang_common = array(
 'Ban message 3' => 'The administrator or moderator that banned you left the following message:',
 'Ban message 4' => 'Please direct any inquiries to the forum administrator at %s.',
 'Never' => 'Never',
+'Date at time' => '%s at %s',
 'Today' => 'Today',
 'Yesterday' => 'Yesterday',
+'Today inline' => 'today',
+'Yesterday inline' => 'yesterday',
 'Forum message' => 'Forum message',
 'Maintenance warning' => '<strong>WARNING! %s Enabled.</strong> DO NOT LOGOUT as you will be unable to login again.',
 'Maintenance mode' => 'Maintenance Mode',
@@ -52,7 +55,7 @@ $lang_common = array(
 'Write message' => 'Write message',
 'Forum' => 'Forum',
 'Posts' => 'Posts',
-'Pages' => 'Pages',
+'Pages' => 'Pages:',
 'Page' => 'Page',
 'BBCode' => 'BBCode',   // You probably shouldn't change this
 'Smilies' => 'Smilies',
@@ -81,9 +84,9 @@ $lang_common = array(
 'Re' => 'Re:',
 'Page info' => '(Page %1$s of %2$s)',
 'Item info single' => '%s: %s',
-'Item info plural' => '%s: %s to %s of %s', // e.g. Topics [ 10 to 20 of 30 ]
+'Item info plural' => '%s %s to %s of %s', // e.g. Topics [ 10 to 20 of 30 ]
 'Info separator' => ' ', // e.g. 1 Page | 10 Topics
-'Powered by' => 'Powered by %s, supported by %s.',
+'Powered by' => 'Powered by %s<span class="hidden">, supported by %s.</span>',
 'Maintenance' => 'Maintenance',
 'Installed extension' => 'The %s official extension is installed. Copyright &copy; 2003&ndash;2012 <a href="http://punbb.informer.com/">PunBB</a>.',
 'Installed extensions' => 'Currently installed <span id="extensions-used" title="%s">%s official extensions</span>. Copyright &copy; 2003&ndash;2012 <a href="http://punbb.informer.com/">PunBB</a>.',

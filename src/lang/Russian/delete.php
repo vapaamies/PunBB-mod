@@ -13,9 +13,9 @@ $lang_delete = array(
 'Delete post info' => 'Сообщение создано %1$s %2$s',
 'Topic' => 'Тема',
 'Forum' => 'Раздел',
-'Topic title' => 'Тема: %s',
+'Topic title' => 'Тема «%s»',
 'Reply title' => 'Ответ на «%s»',
-'Please confirm' => 'Пожалуйста, подтвердите:',
+'Please confirm' => 'Подтвердите, пожалуйста:',
 'Post del redirect' => 'Сообщение удалено.',
 'Topic del redirect' => 'Тема удалена.',
 

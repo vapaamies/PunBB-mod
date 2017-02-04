@@ -53,5 +53,4 @@ $lang_post = array(
 'Preview edited topic' => 'Preview of your edited topic',
 'Preview edited reply' => 'Preview of your edited reply',
 'Edit redirect' => 'Post updated.'
-
 );

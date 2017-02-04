@@ -56,7 +56,7 @@ function forum_mail($to, $subject, $message, $reply_to_email = '', $reply_to_nam
     global $forum_config, $lang_common;
 
     // Default sender address
-    $from_name = sprintf($lang_common['Forum mailer'], $forum_config['o_board_title']);
+    $from_name = $forum_config['o_board_title'];
     $from_email = $forum_config['o_webmaster_email'];
 
     ($hook = get_hook('em_fn_forum_mail_start')) ? eval($hook) : null;
@@ -142,6 +142,7 @@ function smtp_mail($to, $subject, $message, $headers = '')
         $smtp_port = 25;
     }
 
+    $ehlo_host = $smtp_host;
     if ($forum_config['o_smtp_ssl'] == '1')
         $smtp_host = 'ssl://'.$smtp_host;
 
@@ -152,7 +153,7 @@ function smtp_mail($to, $subject, $message, $headers = '')
 
     if ($forum_config['o_smtp_user'] != '' && $forum_config['o_smtp_pass'] != '')
     {
-        fwrite($socket, 'EHLO '.$smtp_host."\r\n");
+        fwrite($socket, 'EHLO '.$ehlo_host."\r\n");
         server_parse($socket, '250');
 
         fwrite($socket, 'AUTH LOGIN'."\r\n");

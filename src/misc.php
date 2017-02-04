@@ -435,7 +435,7 @@ else if (isset($_GET['report']))
                 if ($forum_config['o_mailing_list'] != '')
                 {
                     $mail_subject = 'Report('.$topic_info['forum_id'].') - \''.$topic_info['subject'].'\'';
-                    $mail_message = 'User \''.$forum_user['username'].'\' has reported the following message:'."\n".forum_link($forum_url['post'], $post_id)."\n\n".'Reason:'."\n".$reason;
+                    $mail_message = 'User \''.$forum_user['username'].'\' has reported the following message:'."\n".global_link(forum_link($forum_url['post'], $post_id))."\n\n".'Reason:'."\n".$reason;
 
                     if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
                         require FORUM_ROOT.'include/email.php';

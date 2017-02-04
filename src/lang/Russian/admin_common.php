@@ -30,7 +30,7 @@ $lang_admin_common = array(
 'Start' => 'Начало',
 'Settings' => 'Настройки',
 'Users' => 'Пользователи',
-'Options' => 'Опции',
+'Options' => 'Параметры',
 'Management' => 'Управление',
 'Extensions' => 'Расширения',
 'Moderate' => 'Модерирование',
@@ -38,12 +38,12 @@ $lang_admin_common = array(
 // Start Submenu
 'Information' => 'Информация',
 'Categories' => 'Категории',
-'Forums' => 'Форумы',
+'Forums' => 'Разделы',
 
 // Settings Submenu
 'Setup' => 'Установка',
-'Features' => 'Свойства',
-'Announcements' => 'Объявление',
+'Features' => 'Возможности',
+'Announcements' => 'Объявления',
 'Registration' => 'Регистрация',
 'Censoring' => 'Цензура',
 
@@ -54,7 +54,7 @@ $lang_admin_common = array(
 'Bans' => 'Блокировки',
 
 // Management Submenu
-'Reports' => 'Отчёты',
+'Reports' => 'Обращения',
 'Prune topics' => 'Удаление тем',
 'Maintenance mode' => 'Режим профилактики',
 'Rebuild index' => 'Пересоздание поискового индекса',

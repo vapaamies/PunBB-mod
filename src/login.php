@@ -227,7 +227,7 @@ else if ($action == 'forget' || $action == 'forget_2')
                 $mail_message = forum_trim(substr($mail_tpl, $first_crlf));
 
                 // Do the generic replacements first (they apply to all e-mails sent out here)
-                $mail_message = str_replace('<base_url>', $base_url.'/', $mail_message);
+                $mail_message = str_replace('<base_url>', global_link('/'), $mail_message);
                 $mail_message = str_replace('<board_mailer>', sprintf($lang_common['Forum mailer'], $forum_config['o_board_title']), $mail_message);
 
                 ($hook = get_hook('li_forgot_pass_new_general_replace_data')) ? eval($hook) : null;
@@ -256,7 +256,7 @@ else if ($action == 'forget' || $action == 'forget_2')
 
                     // Do the user specific replacements to the template
                     $cur_mail_message = str_replace('<username>', $cur_hit['username'], $mail_message);
-                    $cur_mail_message = str_replace('<activation_url>', str_replace('&amp;', '&', forum_link($forum_url['change_password_key'], array($cur_hit['id'], $new_password_key))), $cur_mail_message);
+                    $cur_mail_message = str_replace('<activation_url>', str_replace('&amp;', '&', global_link(forum_link($forum_url['change_password_key'], array($cur_hit['id'], $new_password_key)))), $cur_mail_message);
 
                     ($hook = get_hook('li_forgot_pass_new_user_replace_data')) ? eval($hook) : null;
 

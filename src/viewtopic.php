@@ -344,7 +344,7 @@ if (!empty($posts_id))
         $forum_page['post_ident']['link'] = '<span class="post-link"><a class="permalink" rel="bookmark" title="'.$lang_topic['Permalink post'].'" href="'.forum_link($forum_url['post'], $cur_post['id']).'">'.format_time($cur_post['posted']).'</a></span>';
 
         if ($cur_post['edited'] != '')
-            $forum_page['post_ident']['edited'] = '<span class="post-edit">'.sprintf($lang_topic['Last edited'], forum_htmlencode($cur_post['edited_by']), format_time($cur_post['edited'])).'</span>';
+            $forum_page['post_ident']['edited'] = '<span class="post-edit">'.sprintf($lang_topic['Last edited'], forum_htmlencode($cur_post['edited_by']), format_time($cur_post['edited'], FORUM_FT_INLINE)).'</span>';
 
         ($hook = get_hook('vt_row_pre_post_ident_merge')) ? eval($hook) : null;
 
@@ -395,7 +395,7 @@ if (!empty($posts_id))
                         $forum_page['author_info']['from'] = '<li><span>'.$lang_topic['From'].' <strong>'.forum_htmlencode($cur_post['location']).'</strong></span></li>';
                     }
 
-                    $forum_page['author_info']['registered'] = '<li><span>'.$lang_topic['Registered'].' <strong>'.format_time($cur_post['registered'], 1).'</strong></span></li>';
+                    $forum_page['author_info']['registered'] = '<li><span>'.$lang_topic['Registered'].' <strong>'.format_time($cur_post['registered'], FORUM_FT_DATE).'</strong></span></li>';
 
                     if ($forum_config['o_show_post_count'] == '1' || $forum_user['is_admmod'])
                         $forum_page['author_info']['posts'] = '<li><span>'.$lang_topic['Posts info'].' <strong>'.forum_number_format($cur_post['num_posts']).'</strong></span></li>';

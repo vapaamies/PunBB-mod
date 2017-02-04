@@ -1,6 +1,6 @@
-Subject: Новая тема в форуме: <forum_name>
+Subject: Новая тема в разделе «<forum_name>»
 
-<topic_starter> создал новую тему <topic_subject> в форуме, на который вы подписаны.
+<topic_starter> создал новую тему «<topic_subject>» в разделе, на который вы подписаны.
 
 Адрес темы: <topic_url>
 
