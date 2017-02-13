@@ -109,11 +109,10 @@ function output_rss($feed)
     header('Pragma: public');
 
     echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
-    echo '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'."\n";
+    echo '<rss version="2.0">'."\n";
     echo "\t".'<channel>'."\n";
     echo "\t\t".'<title><![CDATA['.escape_cdata($feed['title']).']]></title>'."\n";
     echo "\t\t".'<link>'.$feed['link'].'</link>'."\n";
-    echo "\t\t".'<atom:link href="'.forum_htmlencode(get_current_url()).'" rel="self" type="application/rss+xml"/>'."\n";
     echo "\t\t".'<description><![CDATA['.escape_cdata($feed['description']).']]></description>'."\n";
     echo "\t\t".'<lastBuildDate>'.gmdate('r', count($feed['items']) ? $feed['items'][0]['pubdate'] : time()).'</lastBuildDate>'."\n";
 
@@ -441,12 +440,12 @@ if ($action == 'feed')
 
         // Fetch $show topics
         $query = array(
-            'SELECT' => 't.id, t.poster, t.posted, t.subject, p.message, p.hide_smilies, u.email_setting, u.email, p.poster_id, p.poster_email',
+            'SELECT' => 't.id, t.poster, t.subject, p.posted, p.message, p.hide_smilies, u.email_setting, u.email, p.poster_id, p.poster_email',
             'FROM' => 'topics AS t',
             'JOINS' => array(
                 array(
                     'INNER JOIN' => 'posts AS p',
-                    'ON' => 'p.id = t.first_post_id'
+                    'ON' => 'p.id = '.(($sort_by == 'last_post') ? 't.last_post_id' : 't.first_post_id')
                 ),
                 array(
                     'INNER JOIN' => 'users AS u',
