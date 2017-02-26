@@ -439,7 +439,7 @@ else if (isset($_GET['uninstall']))
 
     if (!$ext_data)
     {
-        message($lang_common['Bad request']);
+        not_found($lang_common['Bad request']);
     }
 
     // Check dependancies
@@ -656,7 +656,7 @@ else if (isset($_GET['flip']))
     // No rows
     if (is_null($ext_status) || $ext_status === false)
     {
-        message($lang_common['Bad request']);
+        not_found($lang_common['Bad request']);
     }
 
     // Are we disabling or enabling?

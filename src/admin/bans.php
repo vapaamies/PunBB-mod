@@ -33,7 +33,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
         {
             $add_ban = intval($_GET['add_ban']);
             if ($add_ban < 2)
-                message($lang_common['Bad request']);
+                not_found($lang_common['Bad request']);
 
             $user_id = $add_ban;
 
@@ -112,7 +112,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
     {
         $ban_id = intval($_GET['edit_ban']);
         if ($ban_id < 1)
-            message($lang_common['Bad request']);
+            not_found($lang_common['Bad request']);
 
         ($hook = get_hook('aba_edit_ban_selected')) ? eval($hook) : null;
 
@@ -128,7 +128,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 
         if (!$banned_user_info)
         {
-            message($lang_common['Bad request']);
+            not_found($lang_common['Bad request']);
         }
 
         list($ban_user, $ban_ip, $ban_email, $ban_message, $ban_expire) = $banned_user_info;
@@ -364,7 +364,7 @@ else if (isset($_GET['del_ban']))
 {
     $ban_id = intval($_GET['del_ban']);
     if ($ban_id < 1)
-        message($lang_common['Bad request']);
+        not_found($lang_common['Bad request']);
 
     // Validate the CSRF token
     if (!isset($_POST['csrf_token']) && (!isset($_GET['csrf_token']) || $_GET['csrf_token'] !== generate_form_token('del_ban'.$ban_id)))
