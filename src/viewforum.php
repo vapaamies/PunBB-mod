@@ -165,7 +165,7 @@ else
 $forum_page['main_head_options'] = $forum_page['main_foot_options'] = array();
 
 if (!empty($topics))
-    $forum_page['main_head_options']['feed'] = '<span class="feed first-item"><a class="feed" href="'.forum_link($forum_url['forum_rss'], $id).'">'.$lang_forum['RSS forum feed'].'</a></span>';
+    $forum_page['main_head_options']['feed'] = '<span class="feed first-item"><a class="feed" rel="feed" href="'.forum_link($forum_url['forum_rss'], $id).'">'.$lang_forum['RSS forum feed'].'</a></span>';
 
 if (!$forum_user['is_guest'] && $forum_config['o_subscriptions'] == '1')
 {
