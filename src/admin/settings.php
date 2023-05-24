@@ -1441,7 +1441,7 @@ $forum_page['group_count'] = $forum_page['item_count'] = 0;
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
                             <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP password label'] ?></span><small><?php echo $lang_admin_settings['SMTP password help'] ?></small></label><br/>
-                            <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[smtp_pass]" size="35" maxlength="50" value="<?php echo forum_htmlencode($forum_config['o_smtp_pass']) ?>"/></span>
+                            <span class="fld-input"><input type="password" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[smtp_pass]" size="35" maxlength="50" value="<?php echo forum_htmlencode($forum_config['o_smtp_pass']) ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_email_pre_smtp_ssl')) ? eval($hook) : null; ?>
