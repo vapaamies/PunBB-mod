@@ -105,7 +105,6 @@ function output_rss($feed)
     // Send XML/no cache headers
     header('Content-Type: application/rss+xml; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
@@ -152,7 +151,6 @@ function output_atom($feed)
     // Send XML/no cache headers
     header('Content-Type: application/rss+xml; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
@@ -210,7 +208,6 @@ function output_xml($feed)
     // Send XML/no cache headers
     header('Content-Type: application/xml; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
@@ -257,7 +254,6 @@ function output_html($feed)
     // Send the Content-type header in case the web server is setup to send something else
     header('Content-type: text/html; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     foreach ($feed['items'] as $item)
@@ -545,7 +541,6 @@ else if ($action == 'online' || $action == 'online_full')
     // Send the Content-type header in case the web server is setup to send something else
     header('Content-type: text/html; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     echo $lang_index['Guests online'].': '.forum_number_format($num_guests).'<br/>'."\n";
@@ -599,7 +594,6 @@ else if ($action == 'stats')
     // Send the Content-type header in case the web server is setup to send something else
     header('Content-type: text/html; charset=utf-8');
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
 
     ($hook = get_hook('ex_pre_stats_output')) ? eval($hook) : null;
