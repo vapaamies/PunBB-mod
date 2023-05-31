@@ -14,11 +14,11 @@ if (!defined('FORUM_ESSENTIALS_LOADED'))
     require FORUM_ROOT.'include/essentials.php';
 
 // Turn off magic_quotes_runtime
-if (get_magic_quotes_runtime())
+if (version_compare(PHP_VERSION, '7.4.0', '<') && function_exists('get_magic_quotes_runtime') && get_magic_quotes_runtime())
     @ini_set('magic_quotes_runtime', false);
 
 // Strip slashes from GET/POST/COOKIE (if magic_quotes_gpc is enabled)
-if (get_magic_quotes_gpc())
+if (version_compare(PHP_VERSION, '7.4.0', '<') && function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
 {
     function stripslashes_array($array)
     {

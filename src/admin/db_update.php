@@ -44,7 +44,7 @@ if (!defined('FORUM_DEBUG'))
 error_reporting(E_ALL);
 
 // Turn off magic_quotes_runtime
-if (get_magic_quotes_runtime())
+if (version_compare(PHP_VERSION, '7.4.0', '<') && function_exists('get_magic_quotes_runtime') && get_magic_quotes_runtime())
     @ini_set('magic_quotes_runtime', false);
 
 // Turn off PHP time limit

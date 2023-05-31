@@ -66,7 +66,10 @@ if ($forum_user['g_id'] == FORUM_ADMIN)
 // Get the server load averages (if possible)
 if (function_exists('sys_getloadavg') && is_array($load_averages = sys_getloadavg()))
 {
-    array_walk($load_averages, create_function('&$v', '$v = forum_number_format(round($v, 2), 2);'));
+    array_walk($load_averages,
+    function () use (&$v) {
+        $v = forum_number_format(round($v, 2), 2);
+    });
     $server_load = $load_averages[0].' '.$load_averages[1].' '.$load_averages[2];
 }
 else if (@/**/is_readable('/proc/loadavg'))

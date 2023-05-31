@@ -373,7 +373,7 @@ else
     //
     function unescape($str)
     {
-        return (get_magic_quotes_gpc() == 1) ? stripslashes($str) : $str;
+        return (version_compare(PHP_VERSION, '7.4.0', '<') && function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() && get_magic_quotes_gpc() == 1) ? stripslashes($str) : $str;
     }
 
     $db_type = $_POST['req_db_type'];
