@@ -773,35 +773,32 @@ function forum_link($link, $args = null)
     if ($return !== null)
         return $return;
 
-    $gen_link = $link;
-    if ($args === null)
-        $gen_link = $base_url.'/'.$link;
-    else if (!is_array($args))
-        $gen_link = $base_url.'/'.str_replace('$1', $args, $link);
+    if (!is_array($args))
+        $link = str_replace('$1', $args, $link);
     else
-    {
         for ($i = 0; isset($args[$i]); ++$i)
-            $gen_link = str_replace('$'.($i + 1), $args[$i], $gen_link);
-        $gen_link = $base_url.'/'.$gen_link;
-    }
+            $link = str_replace('$'.($i + 1), $args[$i], $link);
+
+    if ($base_url === '' || substr($link, 0, 1) !== '/')
+       $link = "/$link";
 
     ($hook = get_hook('fn_forum_link_end')) ? eval($hook) : null;
 
-    return $gen_link;
+    return $link;
 }
 
-// Generate a global hyperlink when $base_url = '', for CSRF token and feeds
+// Generate global hyperlink for RSS, Atom, Sitemap, etc.
 function global_link($target_url)
 {
     global $base_url;
 
-    if ($target_url[0] == '/' && $base_url == '')
-    {
-        $forum_url = get_current_url(255);
-        return substr($forum_url, 0, strpos($forum_url, '/', 8)).$target_url;
-    }
+    if (preg_match('/^\w+:\/\//', $target_url))
+       return $target_url;
+
+    if ($base_url == '')
+        return get_current_url(255, false).$target_url;
     else
-        return $target_url;
+        return ($base_url[0] === '/') ? get_current_url(255, false).$base_url.$target_url : $base_url.$target_url;
 }
 
 // Generate a hyperlink with parameters and anchor and a subsection such as a subpage
@@ -826,9 +823,9 @@ function forum_sublink($link, $sublink, $subarg, $args = null)
     }
 
     if (isset($forum_url['insertion_find']))
-        $gen_link = $base_url.'/'.str_replace($forum_url['insertion_find'], str_replace('$1', str_replace('$1', $subarg, $sublink), $forum_url['insertion_replace']), $gen_link);
+        $gen_link = forum_link(str_replace($forum_url['insertion_find'], str_replace('$1', str_replace('$1', $subarg, $sublink), $forum_url['insertion_replace']), $gen_link));
     else
-        $gen_link = $base_url.'/'.$gen_link.str_replace('$1', $subarg, $sublink);
+        $gen_link = forum_link($gen_link.str_replace('$1', $subarg, $sublink));
 
     ($hook = get_hook('fn_forum_sublink_end')) ? eval($hook) : null;
 
@@ -1132,7 +1129,7 @@ function get_remote_address()
 }
 
 // Try to determine the current URL
-function get_current_url($max_length = 0)
+function get_current_url($max_length = 0, $include_uri = true)
 {
     $return = ($hook = get_hook('fn_get_current_url_start')) ? eval($hook) : null;
     if ($return !== null)
@@ -1141,7 +1138,7 @@ function get_current_url($max_length = 0)
     $protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') ? 'http://' : 'https://';
     $port = (isset($_SERVER['SERVER_PORT']) && (($_SERVER['SERVER_PORT'] != '80' && $protocol == 'http://') || ($_SERVER['SERVER_PORT'] != '443' && $protocol == 'https://')) && strpos($_SERVER['HTTP_HOST'], ':') === false) ? ':'.$_SERVER['SERVER_PORT'] : '';
 
-    $url = $protocol.$_SERVER['HTTP_HOST'].$port.$_SERVER['REQUEST_URI'];
+    $url = $protocol.$_SERVER['HTTP_HOST'].$port.($include_uri ? $_SERVER['REQUEST_URI'] : '');
 
     if (strlen($url) <= $max_length || $max_length == 0)
         return $url;
@@ -1222,7 +1219,7 @@ function generate_form_token($target_url)
     if ($return !== null)
         return $return;
 
-    return sha1(str_replace('&amp;', '&', global_link($target_url)).$forum_user['csrf_token']);
+    return sha1(str_replace('&amp;', '&', ($target_url[0] === '/') ? get_current_url(255, false).$target_url : $target_url).$forum_user['csrf_token']);
 }
 
 // Generates a salted, SHA-1 hash of $str
