@@ -96,7 +96,7 @@ if (version_compare($cur_version, '1.2', '<'))
     error('Version mismatch. The database \''.$db_name.'\' doesn\'t seem to be running a PunBB database schema supported by this update script.', __FILE__, __LINE__);
 
 // If we've already done charset conversion in a previous update, we have to do SET NAMES
-$forum_db->set_names(version_compare($cur_version, '1.3', '>=') ? 'utf8' : 'latin1');
+$forum_db->set_names(version_compare($cur_version, '1.3', '>=') ? utf8_charset() : 'latin1');
 
 // If MySQL, make sure it's at least 4.1.2
 if (in_array($db_type, array('mysql', 'mysqli', 'mysql_innodb', 'mysqli_innodb')))
@@ -155,6 +155,15 @@ if (!file_exists(FORUM_ROOT.'lang/'.$forum_config['o_default_lang'].'/common.php
 }
 
 //
+// Use utf8mb4 for mysqli
+//
+function utf8_charset()
+{
+    global $db_type;
+    return in_array($db_type, array('mysqli', 'mysqli_innodb')) ? 'utf8mb4' : 'utf8';
+}
+
+//
 // Determines whether $str is UTF-8 encoded or not
 //
 function seems_utf8($str)
@@ -167,7 +176,6 @@ function seems_utf8($str)
         else if ((ord($str[$i]) & 0xF0) == 0xE0) $n=2; # 1110bbbb
         else if ((ord($str[$i]) & 0xF8) == 0xF0) $n=3; # 11110bbb
         else if ((ord($str[$i]) & 0xFC) == 0xF8) $n=4; # 111110bb
-        else if ((ord($str[$i]) & 0xFE) == 0xFC) $n=5; # 1111110b
         else return false; # Does not match any model
 
         for ($j = 0; $j < $n; ++$j) # n bytes matching 10bbbbbb follow ?
@@ -356,7 +364,7 @@ function convert_table_utf8($table)
             $allow_null = ($cur_column['Null'] == 'YES');
 
             $forum_db->alter_field($table, $cur_column['Field'], preg_replace('/'.$type.'/i', $types[$type], $cur_column['Type']), $allow_null, $cur_column['Default']);
-            $forum_db->alter_field($table, $cur_column['Field'], $cur_column['Type'].' CHARACTER SET utf8', $allow_null, $cur_column['Default']);
+            $forum_db->alter_field($table, $cur_column['Field'], $cur_column['Type'].' CHARACTER SET '.utf8_charset(), $allow_null, $cur_column['Default']);
         }
     }
 }
@@ -702,8 +710,11 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
             {
                 if ($cur_column['Field'] === 'word')
                 {
-                    if ($cur_column['Collation'] !== 'utf8_bin')
-                        $forum_db->alter_field('search_words', 'word', 'VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_bin', false, '');
+                    $charset = utf8_charset();
+                    if ($cur_column['Collation'] !== $charset.'_bin')
+                    {
+                        $forum_db->alter_field('search_words', 'word', 'VARCHAR(20) CHARACTER SET '.$charset.' COLLATE '.$charset.'_bin', false, '');
+                    }
 
                     break;
                 }
@@ -1373,7 +1384,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Convert config
         echo 'Converting configuration…'."<br/>\n";
@@ -1531,7 +1542,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -1605,7 +1616,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -1679,7 +1690,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -1746,7 +1757,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -1820,7 +1831,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // We need to set names to utf8 before we execute update query
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -1940,7 +1951,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
             require FORUM_ROOT.'include/parser.php';
 
         // Now we're definitely using UTF-8, so we convert the output properly
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -2009,7 +2020,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
             require FORUM_ROOT.'include/parser.php';
 
         // Now we're definitely using UTF-8, so we convert the output properly
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // Determine where to start
         if ($start_at == 0)
@@ -2064,7 +2075,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
     // Show results page
     case 'finish':
         // Now we're definitely using UTF-8, so we convert the output properly
-        $forum_db->set_names('utf8');
+        $forum_db->set_names(utf8_charset());
 
         // We update the version number
         $query = array(
