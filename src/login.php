@@ -27,7 +27,7 @@ if (isset($_POST['form_sent']) && empty($action))
 {
     $form_username = forum_trim($_POST['req_username']);
     $form_password = forum_trim($_POST['req_password']);
-    $save_pass = isset($_POST['save_pass']);
+    $save_pass = boolval($_POST['save_pass']);
 
     ($hook = get_hook('li_login_form_submitted')) ? eval($hook) : null;
 
@@ -448,7 +448,7 @@ ob_start();
 <?php ($hook = get_hook('li_login_pre_remember_me_checkbox')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box checkbox">
-                        <span class="fld-input"><input type="checkbox" id="fld<?php echo ++$forum_page['fld_count'] ?>" name="save_pass" value="1"<?php if (isset($_POST['save_pass'])) echo ' checked="checked"'; ?>/></span>
+                        <span class="fld-input"><input type="checkbox" id="fld<?php echo ++$forum_page['fld_count'] ?>" name="save_pass" value="<?php $save_pass = isset($_POST['save_pass']) ? intval($_POST['save_pass']) : 1; echo $save_pass; ?>"<?php if ($save_pass) echo ' checked="checked"'; ?>/></span>
                         <label for="fld<?php echo $forum_page['fld_count'] ?>"><?php echo $lang_login['Remember me'] ?></label>
                     </div>
                 </div>
