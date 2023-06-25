@@ -265,7 +265,7 @@ function generate_censors_cache()
 //
 function generate_quickjump_cache($group_id = false)
 {
-    global $forum_db, $lang_common, $forum_url, $forum_config, $forum_user, $base_url;
+    global $forum_db, $lang_common, $forum_url, $forum_config, $forum_user;
 
     $return = ($hook = get_hook('ch_fn_generate_quickjump_cache_start')) ? eval($hook) : null;
     if ($return !== null)
@@ -297,7 +297,7 @@ function generate_quickjump_cache($group_id = false)
     foreach ($groups as $group_id)
     {
         $output = '<?php'."\n\n".'if (!defined(\'FORUM\')) exit;'."\n".'define(\'FORUM_QJ_LOADED\', 1);'."\n".'$forum_id = isset($forum_id) ? $forum_id : 0;'."\n\n".' ?>';
-        $output .= '<form id="qjump" method="get" accept-charset="utf-8" action="'.$base_url.'/viewforum.php">'."\n\t".'<div class="frm-fld frm-select">'."\n\t\t".'<label for="qjump-select"><span><?php echo $lang_common[\'Jump to\'] ?>'.'</span></label><br/>'."\n\t\t".'<span class="frm-input"><select id="qjump-select" name="id">'."\n";
+        $output .= '<form id="qjump" method="get" accept-charset="utf-8" action="'.forum_link('/viewforum.php').'">'."\n\t".'<div class="frm-fld frm-select">'."\n\t\t".'<label for="qjump-select"><span><?php echo $lang_common[\'Jump to\'] ?>'.'</span></label><br/>'."\n\t\t".'<span class="frm-input"><select id="qjump-select" name="id">'."\n";
 
         // Get the list of categories and forums from the DB
         $query = array(
@@ -422,7 +422,7 @@ function clean_quickjump_cache($group_id = false)
 //
 function generate_hooks_cache()
 {
-    global $forum_db, $forum_config, $base_url;
+    global $forum_db, $forum_config;
 
     $return = ($hook = get_hook('ch_fn_generate_hooks_cache_start')) ? eval($hook) : null;
     if ($return !== null)
@@ -451,7 +451,7 @@ function generate_hooks_cache()
         $load_ext_info = '$GLOBALS[\'ext_info_stack\'][] = array('."\n".
             '\'id\' => \''.$cur_hook['extension_id'].'\','."\n".
             '\'path\' => FORUM_ROOT.\'extensions/'.$cur_hook['extension_id'].'\','."\n".
-            '\'url\' => $GLOBALS[\'base_url\'].\'/extensions/'.$cur_hook['extension_id'].'\','."\n".
+            '\'url\' => forum_link(\'/extensions/'.$cur_hook['extension_id'].'\'),'."\n".
             '\'dependencies\' => array ('."\n";
 
         $dependencies = explode('|', substr($cur_hook['dependencies'], 1, -1));
@@ -464,7 +464,7 @@ function generate_hooks_cache()
             $load_ext_info .= '\''.$cur_dependency.'\' => array('."\n".
                 '\'id\' => \''.$cur_dependency.'\','."\n".
                 '\'path\' => FORUM_ROOT.\'extensions/'.$cur_dependency.'\','."\n".
-                '\'url\' => $GLOBALS[\'base_url\'].\'/extensions/'.$cur_dependency.'\'),'."\n";
+                '\'url\' => forum_link(\'/extensions/'.$cur_dependency.'\'),'."\n";
         }
 
         $load_ext_info .= ')'."\n".');'."\n".'$ext_info = $GLOBALS[\'ext_info_stack\'][count($GLOBALS[\'ext_info_stack\']) - 1];';
