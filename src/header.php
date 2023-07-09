@@ -106,6 +106,9 @@ if ($forum_user['g_read_board'] == '1' && $forum_user['g_search'] == '1')
     $forum_head['opensearch'] = '<link rel="search" type="application/opensearchdescription+xml" href="'.forum_link($forum_url['opensearch']).'" title="'.forum_htmlencode($forum_config['o_board_title']).'"/>';
 }
 
+if (!defined('FORUM_DISABLE_CANONICAL'))
+   $forum_head['canonical'] = '<link rel="canonical" href="'.global_link($_SERVER['REQUEST_URI']).'"/>';
+
 $forum_head['author'] = '<link rel="author" type="text/html" href="'.forum_link($forum_url['users']).'" title="'.$lang_common['User list'].'"/>';
 
 ob_start();
