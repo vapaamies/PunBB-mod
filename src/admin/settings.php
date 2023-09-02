@@ -311,12 +311,12 @@ if (!$section || $section == 'setup')
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_board_descrip')) ? eval($hook) : null; ?>
-                    <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
-                        <div class="sf-box text">
+                    <div class="txt-set set<?php echo ++$forum_page['item_count'] ?>">
+                        <div class="txt-box textarea">
                             <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
-                                <span><?php echo $lang_admin_settings['Board description label'] ?></span>
+                                <span><?php echo $lang_admin_settings['Board description label'] ?></span> <small><?php echo $lang_admin_settings['Board description help'] ?></small>
                             </label><br/>
-                            <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[board_desc]" size="50" maxlength="255" value="<?php echo forum_htmlencode($forum_config['o_board_desc']) ?>"/></span>
+                            <div class="txt-input"><span class="fld-input"><textarea id="fld<?php echo $forum_page['fld_count'] ?>" name="form[board_desc]" cols="50" rows="3"><?php echo forum_htmlencode($forum_config['o_board_desc']) ?></textarea></span></div>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_default_style')) ? eval($hook) : null; ?>

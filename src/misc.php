@@ -159,7 +159,7 @@ else if ($action == 'opensearch')
     echo '<?xml version="1.0" encoding="utf-8"?>'."\n";
     echo '<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">'."\n";
     echo "\t".'<ShortName>'.forum_htmlencode($forum_config['o_board_title']).'</ShortName>'."\n";
-    echo "\t".'<Description>'.forum_htmlencode($forum_config['o_board_desc']).'</Description>'."\n";
+    echo "\t".'<Description>'.forum_htmlencode(strip_tags(forum_desc())).'</Description>'."\n";
     echo "\t".'<InputEncoding>utf-8</InputEncoding>'."\n";
     echo "\t".'<OutputEncoding>utf-8</OutputEncoding>'."\n";
     echo "\t".'<Image width="16" height="16" type="image/x-icon">'.global_link('/favicon.ico').'</Image>'."\n";

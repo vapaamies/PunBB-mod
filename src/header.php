@@ -71,7 +71,7 @@ $tpl_main = str_replace('<!-- forum_local -->', 'lang="'.$lang_common['lang_iden
 if (!defined('FORUM_ALLOW_INDEX'))
     $forum_head['robots'] = '<meta name="ROBOTS" content="NOINDEX, FOLLOW"/>';
 else
-    $forum_head['descriptions'] = '<meta name="description" content="'.generate_crumbs(true).$lang_common['Title separator'].forum_htmlencode($forum_config['o_board_desc']).'"/>';
+    $forum_head['descriptions'] = '<meta name="description" content="'.generate_crumbs(true).$lang_common['Title separator'].forum_htmlencode(strip_tags(forum_desc())).'"/>';
 
 // Should we output a MicroID? http://microid.org/
 if (strpos(FORUM_PAGE, 'profile') === 0)
@@ -163,7 +163,8 @@ $gen_elements['<!-- forum_skip -->'] = '<p id="brd-access"><a href="#brd-main">'
 $gen_elements['<!-- forum_title -->'] = '<p id="brd-title"><a href="'.forum_link($forum_url['index']).'">'.forum_htmlencode($forum_config['o_board_title']).'</a></p>';
 
 // Forum Description
-$gen_elements['<!-- forum_desc -->'] = ($forum_config['o_board_desc'] != '') ? '<p id="brd-desc">'.forum_htmlencode($forum_config['o_board_desc']).'</p>' : '';
+$forum_desc = forum_desc();
+$gen_elements['<!-- forum_desc -->'] = ($forum_desc != '') ? '<p id="brd-desc">'.$forum_desc.'</p>' : '';
 
 // Main Navigation
 $gen_elements['<!-- forum_navlinks -->'] = '<ul>'."\n\t\t".generate_navlinks()."\n\t".'</ul>';

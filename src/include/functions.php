@@ -832,6 +832,19 @@ function forum_sublink($link, $sublink, $subarg, $args = null)
     return $gen_link;
 }
 
+function forum_desc()
+{
+    global $forum_config;
+
+    static $desc = '';
+    if ($desc == '')
+    {
+        $slogans = explode("\n", str_replace("\r\n", "\n", $forum_config['o_board_desc']));
+        $desc = $slogans[array_rand($slogans)];
+    }
+    return $desc;
+}
+
 // Make a string safe to use in a URL
 function sef_friendly($str)
 {

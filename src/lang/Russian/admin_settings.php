@@ -8,6 +8,7 @@ $lang_admin_settings = array(
 'Setup personal' => 'Персональные настройки',
 'Setup personal legend' => 'Инсталляция PunBB',
 'Board description label' => 'Описание форума',
+'Board description help' => 'Случайный выбор из нескольких строк (можно использовать HTML)',
 'Board title label' => 'Название форума',
 'Default style label' => 'Стиль по умолчанию',
 'Setup local' => 'Настройка локализации',
