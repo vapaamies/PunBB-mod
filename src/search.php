@@ -80,7 +80,7 @@ else if (isset($_GET['action']))
                 not_found($lang_common['Bad request']);
         }
         else if ($action == 'show_recent')
-            $value = (isset($_GET['value'])) ? intval($_GET['value']) : 86400;
+            $value = (isset($_GET['value'])) ? intval($_GET['value']) : 86400 * 7;
         else if ($action == 'show_new')
             $value = (isset($_GET['forum'])) ? intval($_GET['forum']) : -1;
 
