@@ -268,11 +268,12 @@ class DBLayer
 
     function get_version()
     {
-        $result = $this->query('SELECT VERSION()');
+        $result = $this->result($this->query('SELECT VERSION()'));
 
         return array(
-            'name' => 'MySQL Improved (InnoDB)',
-            'version' => preg_replace('/^([^-]+).*$/', '\\1', $this->result($result))
+            'name' => 'MySQL Improved, InnoDB',
+            'release' => $result,
+            'version' => preg_replace('/^([^-]+).*$/', '\\1', $result)
         );
     }
 

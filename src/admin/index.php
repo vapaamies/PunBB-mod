@@ -211,7 +211,7 @@ ob_start();
                 <div class="ct-box">
                     <h3 class="ct-legend hn"><span><?php echo $lang_admin_index['Environment'] ?></span></h3>
                     <ul class="data-list">
-                        <li><span><?php echo $lang_admin_index['Operating system'] ?>: <?php echo PHP_OS ?></span></li>
+                        <li><span><?php echo $lang_admin_index['Operating system'] ?>: <?php echo sprintf('%s (%s %s %s)', PHP_OS, php_uname('s'), php_uname('r'), php_uname('m')) ?></span></li>
                         <li><span>PHP: <?php echo PHP_VERSION ?> - <a href="<?php echo forum_link($forum_url['admin_index']) ?>?action=phpinfo"><?php echo $lang_admin_index['Show info'] ?></a></span></li>
                         <li><span><?php echo $lang_admin_index['Accelerator'] ?>: <?php echo $php_accelerator ?></span></li>
                     </ul>
@@ -222,7 +222,7 @@ ob_start();
                 <div class="ct-box">
                     <h3 class="ct-legend hn"><span><?php echo $lang_admin_index['Database'] ?></span></h3>
                     <ul class="data-list">
-                        <li><span><?php echo implode(' ', $forum_db->get_version()) ?></span></li>
+                        <li><span><?php $v = $forum_db->get_version(); echo sprintf('%s (%s)', $v['name'], array_key_exists('release', $v) ? $v['release'] : $v['version']) ?></span></li>
 <?php if (isset($total_records) && isset($total_size)): ?>
                         <li><span><?php echo $lang_admin_index['Rows'] ?>: <?php echo forum_number_format($total_records) ?></span></li>
                         <li><span><?php echo $lang_admin_index['Size'] ?>: <?php echo $total_size ?></span></li>

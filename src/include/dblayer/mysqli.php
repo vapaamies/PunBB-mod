@@ -239,11 +239,12 @@ class DBLayer
 
     function get_version()
     {
-        $result = $this->query('SELECT VERSION()');
+        $result = $this->result($this->query('SELECT VERSION()'));
 
         return array(
             'name' => 'MySQL Improved',
-            'version' => preg_replace('/^([^-]+).*$/', '\\1', $this->result($result))
+            'release' => $result,
+            'version' => preg_replace('/^([^-]+).*$/', '\\1', $result)
         );
     }
 
