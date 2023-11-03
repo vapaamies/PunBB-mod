@@ -616,12 +616,12 @@ function handle_url_tag($url, $link = '', $bbcode = false)
     else
     {
         $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
-        if (strpos($url, 'www.') === 0)         // If it starts with www, we add http://
-            $full_url = 'http://'.$full_url;
+        if (strpos($url, 'www.') === 0)         // If it starts with www, we add // (same protocol as of site's)
+            $full_url = '//'.$full_url;
         else if (strpos($url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
             $full_url = 'ftp://'.$full_url;
-        else if (!preg_match('#^([a-z0-9]{3,6})://#', $url))    // Else if it doesn't start with abcdef://, we add http://
-            $full_url = 'http://'.$full_url;
+        else if (!preg_match('#^([a-z0-9]{3,6})://#', $url))    // Else if it doesn't start with abcdef://, we add //
+            $full_url = '//'.$full_url;
     }
 
     if (defined('FORUM_SUPPORT_PCRE_UNICODE') && defined('FORUM_ENABLE_IDNA'))
