@@ -3101,6 +3101,7 @@ function maintenance_message()
     // START SUBST - <!-- forum_head -->
     ob_start();
 
+    echo '<title>'.$lang_common['Maintenance mode'].$lang_common['Title separator'].$forum_config['o_board_title']."</title>\n";
     require FORUM_ROOT.'style/'.$forum_user['style'].'/'.$forum_user['style'].'.php';
     echo $forum_loader->render_css();
 
