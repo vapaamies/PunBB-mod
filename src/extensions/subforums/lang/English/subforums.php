@@ -1,8 +1,8 @@
 <?php
 
 // Language definitions used in subforums
-$lang_xn_subforums = [
-    'Set parent forum label' => 'Set parent forum',
+$lang_subforums = [
+    'Set parent forum label' => 'Parent forum',
     'Without parent' => '(Without parent)',
     'Subforum' => 'Subforum',
     'Subforums' => 'Subforums',

@@ -26,8 +26,8 @@ class Subforums
             require $langDir . '/English/' . $ext_info['id'] . '.php';
         }
 
-        /** @var string[] $lang_xn_subforums */
-        $this->lang = $lang_xn_subforums;
+        /** @var string[] $lang_subforums */
+        $this->lang = $lang_subforums;
         $this->fid = $forum_id;
 
         $this->list = $this->get_list();
