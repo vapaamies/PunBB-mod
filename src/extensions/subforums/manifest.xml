@@ -326,18 +326,10 @@ if (isset($_POST['add_forum']) && !empty($_POST['set_parent']) && empty($_POST['
 
         ]]></hook>
 
-        <hook id="afo_save_forum_form_submitted"><![CDATA[
-
-if (!empty($_POST['parent_id']) && empty($_POST['cat_id'])) {
-    $_POST['cat_id'] = 1;
-}
-
-        ]]></hook>
-
         <hook id="afo_pre_new_forum_cat"><![CDATA[
 
 if (isset($_GET['parent'])) {
-    $parent_id = (int)$_GET['parent'];
+    $parent_id = intval($_GET['parent']);
 }
 
 // Add field into forum create form
@@ -466,7 +458,7 @@ echo '</optgroup></select></span></div></div>';
         <hook id="afo_add_forum_form_submitted"><![CDATA[
 
 // Set parent forum ID
-$subforums_parent_id = isset($_POST['set_parent']) ? (int)$_POST['set_parent'] : 0;
+$subforums_parent_id = isset($_POST['set_parent']) ? intval($_POST['set_parent']) : 0;
 // If parent forum selected, use it category for current forum
 if ($subforums_parent_id) {
     $subforums_query = [
@@ -505,7 +497,7 @@ if (isset($parent_id)) {
 
 // Change parent forum ID
 if (isset($_POST['parent_id'])) {
-    $subforums_parent_id = (int)$_POST['parent_id'];
+    $subforums_parent_id = intval($_POST['parent_id']);
     if ($forum_id != $subforums_parent_id) {
         $query['SET'] .= ', parent_id = ' . $subforums_parent_id;
     }
@@ -583,7 +575,7 @@ $subforums->multilevel_query($query);
         <hook id="pf_change_details_settings_validation"><![CDATA[
 
 $form['show_subforums_list'] = isset($_POST['form']['show_subforums_list'])
-    ? (int)$_POST['form']['show_subforums_list']
+    ? intval($_POST['form']['show_subforums_list'])
     : 0;
 
         ]]></hook>

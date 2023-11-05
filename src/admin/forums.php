@@ -286,6 +286,8 @@ else if (isset($_GET['edit_forum']))
     // Update group permissions for $forum_id
     if (isset($_POST['save']))
     {
+        ($hook = get_hook('afo_save_forum_form_submitted')) ? eval($hook) : null;
+
         // Start with the forum details
         $forum_name = forum_trim($_POST['forum_name']);
         $forum_desc = forum_linebreaks(forum_trim($_POST['forum_desc']));
@@ -293,12 +295,10 @@ else if (isset($_GET['edit_forum']))
         $sort_by = intval($_POST['sort_by']);
         $redirect_url = isset($_POST['redirect_url']) && $cur_forum['num_topics'] == 0 ? forum_trim($_POST['redirect_url']) : null;
 
-        ($hook = get_hook('afo_save_forum_form_submitted')) ? eval($hook) : null;
-
         if ($forum_name == '')
             message($lang_admin_forums['Must enter forum message']);
 
-        if ($cat_id < 1)
+        if (isset($_POST['cat_id']) && $cat_id < 1)
             not_found($lang_common['Bad request']);
 
         $forum_desc = ($forum_desc != '') ? '\''.$forum_db->escape($forum_desc).'\'' : 'NULL';
@@ -306,7 +306,7 @@ else if (isset($_GET['edit_forum']))
 
         $query = array(
             'UPDATE' => 'forums',
-            'SET' => 'forum_name=\''.$forum_db->escape($forum_name).'\', forum_desc='.$forum_desc.', redirect_url='.$redirect_url.', sort_by='.$sort_by.', cat_id='.$cat_id,
+            'SET' => 'forum_name=\''.$forum_db->escape($forum_name).'\', forum_desc='.$forum_desc.', redirect_url='.$redirect_url.', sort_by='.$sort_by.(isset($_POST['cat_id']) ? ', cat_id='.$cat_id : ''),
             'WHERE' => 'id='.$forum_id
         );
 
