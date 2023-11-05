@@ -170,7 +170,7 @@ $subforums_result = $forum_db->query_build($subforums_query) or error(__FILE__, 
 if ($forum_config['o_subforums_plain_view'] != 1 && ($forum_db->num_rows($subforums_result) || !empty($subforums_force_list))) {
     // Headers
     // -> .main-head
-    $forum_page['subforums_info'] = $subforums->lang['Subforums'] . ' [ ' . $forum_db->num_rows($subforums_result) . ' ]';
+    $forum_page['subforums_info'] = $subforums->lang['Subforums'] . ': ' . $forum_db->num_rows($subforums_result);
 
     $forum_page['subforums_header'] = [];
     $forum_page['subforums_header']['subject']['title'] = '<strong class="subject-title">' . $lang_index['Forums'] . '</strong>';
@@ -215,13 +215,14 @@ if ($forum_config['o_subforums_plain_view'] != 1 && ($forum_db->num_rows($subfor
 
         echo '<span class="icon"><!-- --></span>',
             '<div class="item-subject">',
-            '<h3 class="hn"><a href="' . forum_link(
+            '<h3 class="hn"><span><a href="' . forum_link(
                     $forum_url['forum'],
                     [
                         $sub_forum['fid'],
                         sef_friendly($sub_forum['forum_name']),
                     ]
-                ) . '">' . forum_htmlencode($sub_forum['forum_name']) . '</a></h3>',
+                ) . '">' . forum_htmlencode($sub_forum['forum_name']) . '</a></span></h3>',
+            isset($sub_forum['forum_desc']) ? '<p>'.$sub_forum['forum_desc'].'</p>' : '',
             '</div>',
             '<ul class="item-info">',
             implode("\n", $forum_page['item_body']['info']),
