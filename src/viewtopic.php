@@ -56,7 +56,9 @@ if ($pid)
     $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
     $num_posts = $forum_db->result($result) + 1;
 
-    $_GET['p'] = ceil($num_posts / $forum_user['disp_posts']);
+    $p = ceil($num_posts / $forum_user['disp_posts']);
+    header('Location: '.str_replace('&amp;', '&', forum_sublink($forum_url['topic'], $forum_url['page'], $p, $id)));
+    exit;
 }
 
 // If action=new, we redirect to the first new post (if any)
