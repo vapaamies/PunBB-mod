@@ -852,7 +852,7 @@ function sef_friendly($str)
     static $lang_url_replace, $forum_reserved_strings;
 
     if (!isset($lang_url_replace))
-        require FORUM_ROOT.'lang/'.$forum_user['language'].'/url_replace.php';
+        require FORUM_ROOT.'lang/url_replace.php';
 
     if (!isset($forum_reserved_strings))
     {
