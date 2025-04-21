@@ -42,10 +42,10 @@ function attach_generate_pathname($storagepath = '') {
     return $newdir;
 }
 
-function attach_generate_filename($messagelenght=0, $filesize=0) {
+function attach_generate_filename($messagelength=0, $filesize=0) {
     global $lang_attach, $forum_config;
 
-    while (($newfile = md5(attach_generate_pathname().$messagelenght.$filesize.$lang_attach['Some more salt keywords']).'.attach') && is_file(FORUM_ROOT.$forum_config['attach_basefolder'].$forum_config['attach_subfolder'].'/'.$newfile));
+    while (($newfile = md5(attach_generate_pathname().$messagelength.$filesize.$lang_attach['Some more salt keywords']).'.attach') && is_file(FORUM_ROOT.$forum_config['attach_basefolder'].$forum_config['attach_subfolder'].'/'.$newfile));
 
     return $newfile;
 }
