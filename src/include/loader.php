@@ -306,9 +306,9 @@ class Loader
             else if ($lib['type'] == 'url')
             {
                 if ($lib['noscript'] === true)
-                    $output .= forum_trim($this->check_conditional_comments($lib, '<noscript><link rel="stylesheet" type="text/css" media="'.$lib['media'].'" href="'.$lib['data'].'"/></noscript>'))."\n";
+                    $output .= forum_trim($this->check_conditional_comments($lib, '<noscript><link rel="stylesheet" type="text/css" media="'.$lib['media'].'" href="'.$lib['data'].'"></noscript>'))."\n";
                 else
-                    $output .= forum_trim($this->check_conditional_comments($lib, '<link rel="stylesheet" type="text/css" media="'.$lib['media'].'" href="'.$lib['data'].'"/>'))."\n";
+                    $output .= forum_trim($this->check_conditional_comments($lib, '<link rel="stylesheet" type="text/css" media="'.$lib['media'].'" href="'.$lib['data'].'">'))."\n";
                 unset($libs[$key]);
                 continue;
             }

@@ -87,7 +87,7 @@ if (isset($_GET['i_per_page']) && isset($_GET['i_start_at']))
 <!DOCTYPE html>
 <html lang="<?php $lang_common['lang_identifier'] ?>" dir="<?php echo $lang_common['lang_direction'] ?>">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta charset="utf-8">
 <title><?php echo generate_crumbs(true) ?></title>
 <style type="text/css">
 body {
@@ -127,7 +127,7 @@ body {
     echo '<p>';
     while ($cur_post = $forum_db->fetch_row($result))
     {
-        echo sprintf($lang_admin_reindex['Processing post'], $cur_post[0], $cur_post[2]).'<br/>'."\n";
+        echo sprintf($lang_admin_reindex['Processing post'], $cur_post[0], $cur_post[2]).'<br>'."\n";
 
         if ($cur_post[0] == $cur_post[4])   // This is the "topic post" so we have to index the subject as well
             update_search_index('post', $cur_post[0], $cur_post[1], $cur_post[3]);
@@ -162,7 +162,7 @@ body {
     $forum_db->end_transaction();
     $forum_db->close();
 
-    exit('<script type="text/javascript">window.location="'.forum_link($forum_url['admin_reindex']).$query_str.'"</script><br/>'.$lang_admin_reindex['Javascript redirect'].' <a href="'.forum_link($forum_url['admin_reindex']).$query_str.'">'.$lang_admin_reindex['Click to continue'].'</a>.');
+    exit('<script type="text/javascript">window.location="'.forum_link($forum_url['admin_reindex']).$query_str.'"</script><br>'.$lang_admin_reindex['Javascript redirect'].' <a href="'.forum_link($forum_url['admin_reindex']).$query_str.'">'.$lang_admin_reindex['Click to continue'].'</a>.');
 }
 
 // Get the first post ID from the db
@@ -224,14 +224,14 @@ ob_start();
 <?php ($hook = get_hook('ari_pre_rebuild_per_page')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_reindex['Posts per cycle'] ?></span> <small><?php echo $lang_admin_reindex['Posts per cycle info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_reindex['Posts per cycle'] ?></span> <small><?php echo $lang_admin_reindex['Posts per cycle info'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="i_per_page" size="7" maxlength="7" value="100"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('ari_pre_rebuild_start_post')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span class="fld-label"><?php echo $lang_admin_reindex['Starting post'] ?></span> <small><?php echo $lang_admin_reindex['Starting post info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span class="fld-label"><?php echo $lang_admin_reindex['Starting post'] ?></span> <small><?php echo $lang_admin_reindex['Starting post info'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="i_start_at" size="7" maxlength="7" value="<?php echo (isset($first_id)) ? $first_id : 0 ?>"/></span>
                     </div>
                 </div>

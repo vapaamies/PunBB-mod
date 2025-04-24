@@ -96,10 +96,10 @@ if ($forum_config['o_pun_antispam_captcha_register'] == '1' && empty($_SESSION['
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_antispam_input" value="" size="20" maxlength="10"/></span>
                     </div>
-                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br/>
+                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br>
                     <script type="text/javascript">document.write("<small><a href=\"#\" onclick=\"document.getElementById('pun_antispam_image').src = '<?php echo $ext_info['url'].'/image.php?' ?>' + Math.random(); return false\"><?php echo $lang_pun_antispam['reload image'] ?></a></small>");</script>
                 </div>
 <?php
@@ -138,10 +138,10 @@ if ($forum_config['o_pun_antispam_captcha_login'] == '1')
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_antispam_input" value="" size="20" maxlength="10"/></span>
                     </div>
-                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br/>
+                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br>
                     <script type="text/javascript">document.write("<small><a href=\"#\" onclick=\"document.getElementById('pun_antispam_image').src = '<?php echo $ext_info['url'].'/image.php?' ?>' + Math.random(); return false\"><?php echo $lang_pun_antispam['reload image'] ?></a></small>");</script>
                 </div>
 <?php
@@ -168,10 +168,10 @@ if ($forum_config['o_pun_antispam_captcha_restorepass'] == '1')
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_antispam_input" value="" size="20" maxlength="10"/></span>
                     </div>
-                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br/>
+                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br>
                     <script type="text/javascript">document.write("<small><a href=\"#\" onclick=\"document.getElementById('pun_antispam_image').src = '<?php echo $ext_info['url'].'/image.php?' ?>' + Math.random(); return false\"><?php echo $lang_pun_antispam['reload image'] ?></a></small>");</script>
                 </div>
 <?php
@@ -214,10 +214,10 @@ if ($forum_config['o_pun_antispam_captcha_guestpost'] == '1' && empty($_SESSION[
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Captcha'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_pun_antispam['Captcha Info'] ?></small></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_antispam_input" value="" size="20" maxlength="10"/></span>
                     </div>
-                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br/>
+                    <img id="pun_antispam_image" src="<?php echo $ext_info['url'].'/image.php?'.md5(time()) ?>" style="vertical-align: middle; margin: 0 1em;" alt="<?php echo $lang_pun_antispam['img alt'] ?>"/><br>
                     <script type="text/javascript">document.write("<small><a href=\"#\" onclick=\"document.getElementById('pun_antispam_image').src = '<?php echo $ext_info['url'].'/image.php?' ?>' + Math.random(); return false\"><?php echo $lang_pun_antispam['reload image'] ?></a></small>");</script>
                 </div>
 <?php
@@ -229,7 +229,7 @@ if ($forum_config['o_pun_antispam_captcha_guestpost'] == '1' && empty($_SESSION[
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Min posts for sig'] ?></span><small><?php echo $lang_pun_antispam['Min posts for sig info'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_antispam['Min posts for sig'] ?></span><small><?php echo $lang_pun_antispam['Min posts for sig info'] ?></small></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[sig_min_posts]" size="5" maxlength="5" value="<?php echo $forum_config['p_sig_min_posts'] ?>"/></span>
                     </div>
                 </div>

@@ -144,7 +144,7 @@ function pun_repository_download_extension($ext_id, &$ext_data, $ext_path = FALS
         $error = $lang_pun_repository['Can\'t extract'];
 
         if (isset($pun_repository_tar->errors))
-            $error .= ' '.$lang_pun_repository['Extract errors:'] . '<br/>' . implode('<br/>', $pun_repository_tar->errors);
+            $error .= ' '.$lang_pun_repository['Extract errors:'] . '<br>' . implode('<br>', $pun_repository_tar->errors);
 
         unlink(FORUM_ROOT.'extensions/'.$ext_id.'.tgz');
         @pun_repository_rm_recursive($ext_path);

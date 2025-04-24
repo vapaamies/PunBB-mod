@@ -464,9 +464,9 @@ switch ($stage)
 <!--[if IE 8 ]>    <html class="oldie ie8" lang="en" dir="ltr"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>PunBB Database Update</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/Oxygen/Oxygen.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/Oxygen/Oxygen.css">
     <script type="text/javascript" src="<?php echo $base_url ?>/include/js/punbb.common.js"></script>
 </head>
 <body>
@@ -544,7 +544,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
                 </div>
                 <div class="sf-set set2">
                     <div class="sf-box text required">
-                        <label for="fld2"><span>Current character set: <em>(Required)</em></span> <small>Accept default for English forums otherwise the character set of the primary langauge pack.</small></label><br/>
+                        <label for="fld2"><span>Current character set: <em>(Required)</em></span> <small>Accept default for English forums otherwise the character set of the primary language pack.</small></label><br>
                         <span class="fld-input"><input type="text" id="fld2" name="req_old_charset" size="12" maxlength="20" value="ISO-8859-1"/></span>
                     </div>
                 </div>
@@ -1387,7 +1387,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $forum_db->set_names(utf8_charset());
 
         // Convert config
-        echo 'Converting configuration…'."<br/>\n";
+        echo 'Converting configuration…'."<br>\n";
         foreach ($forum_config as $conf_name => $conf_value)
         {
             if (convert_to_utf8($conf_value, $old_charset))
@@ -1403,7 +1403,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // Convert categories
-        echo 'Converting categories…'."<br/>\n";
+        echo 'Converting categories…'."<br>\n";
         $query = array(
             'SELECT' => 'id, cat_name',
             'FROM' => 'categories',
@@ -1426,7 +1426,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // Convert forums
-        echo 'Converting forums…'."<br/>\n";
+        echo 'Converting forums…'."<br>\n";
         $query = array(
             'SELECT' => 'id, forum_name, forum_desc, moderators',
             'FROM' => 'forums',
@@ -1460,7 +1460,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // Convert groups
-        echo 'Converting groups…'."<br/>\n";
+        echo 'Converting groups…'."<br>\n";
         $query = array(
             'SELECT' => 'g_id, g_title, g_user_title',
             'FROM' => 'groups',
@@ -1485,7 +1485,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // Convert ranks
-        echo 'Converting ranks…'."<br/>\n";
+        echo 'Converting ranks…'."<br>\n";
         $query = array(
             'SELECT' => 'id, rank',
             'FROM' => 'ranks',
@@ -1508,7 +1508,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         }
 
         // Convert censor words
-        echo 'Converting censor words…'."<br/>\n";
+        echo 'Converting censor words…'."<br>\n";
         $query = array(
             'SELECT' => 'id, search_for, replace_with',
             'FROM' => 'censoring',
@@ -1574,7 +1574,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Converting report '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Converting report '.$cur_item['id'].'…<br>'."\n";
             if (convert_to_utf8($cur_item['message'], $old_charset))
             {
                 $query = array(
@@ -1648,7 +1648,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Converting search word '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Converting search word '.$cur_item['id'].'…<br>'."\n";
             if (convert_to_utf8($cur_item['word'], $old_charset))
             {
                 $query = array(
@@ -1709,7 +1709,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Converting user '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Converting user '.$cur_item['id'].'…<br>'."\n";
             if (convert_to_utf8($cur_item['username'], $old_charset) | convert_to_utf8($cur_item['title'], $old_charset) | convert_to_utf8($cur_item['realname'], $old_charset) | convert_to_utf8($cur_item['location'], $old_charset) | convert_to_utf8($cur_item['signature'], $old_charset) | convert_to_utf8($cur_item['admin_note'], $old_charset))
             {
                 $cur_item['title'] = $cur_item['title'] != '' ? '\''.$forum_db->escape($cur_item['title']).'\'' : 'NULL';
@@ -1789,7 +1789,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Converting topic '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Converting topic '.$cur_item['id'].'…<br>'."\n";
             if (convert_to_utf8($cur_item['poster'], $old_charset) | convert_to_utf8($cur_item['subject'], $old_charset) | convert_to_utf8($cur_item['last_poster'], $old_charset))
             {
                 $query = array(
@@ -1863,7 +1863,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Converting post '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Converting post '.$cur_item['id'].'…<br>'."\n";
             if (convert_to_utf8($cur_item['poster'], $old_charset) | convert_to_utf8($cur_item['message'], $old_charset) | convert_to_utf8($cur_item['edited_by'], $old_charset))
             {
                 $cur_item['edited_by'] = $cur_item['edited_by'] != '' ? '\''.$forum_db->escape($cur_item['edited_by']).'\'' : 'NULL';
@@ -1903,43 +1903,43 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         // Do the cumbersome charset conversion of MySQL tables/columns
         if (in_array($db_type, array('mysql', 'mysqli', 'mysql_innodb', 'mysqli_innodb')))
         {
-            echo 'Converting table '.$forum_db->prefix.'bans…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'bans…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'bans');
-            echo 'Converting table '.$forum_db->prefix.'categories…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'categories…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'categories');
-            echo 'Converting table '.$forum_db->prefix.'censoring…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'censoring…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'censoring');
-            echo 'Converting table '.$forum_db->prefix.'config…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'config…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'config');
-            echo 'Converting table '.$forum_db->prefix.'extension_hooks…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'extension_hooks…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'extension_hooks');
-            echo 'Converting table '.$forum_db->prefix.'extensions…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'extensions…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'extensions');
-            echo 'Converting table '.$forum_db->prefix.'forum_perms…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'forum_perms…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'forum_perms');
-            echo 'Converting table '.$forum_db->prefix.'forums…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'forums…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'forums');
-            echo 'Converting table '.$forum_db->prefix.'groups…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'groups…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'groups');
-            echo 'Converting table '.$forum_db->prefix.'online…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'online…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'online');
-            echo 'Converting table '.$forum_db->prefix.'posts…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'posts…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'posts');
-            echo 'Converting table '.$forum_db->prefix.'ranks…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'ranks…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'ranks');
-            echo 'Converting table '.$forum_db->prefix.'reports…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'reports…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'reports');
-            echo 'Converting table '.$forum_db->prefix.'search_cache…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'search_cache…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'search_cache');
-            echo 'Converting table '.$forum_db->prefix.'search_matches…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'search_matches…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'search_matches');
-            echo 'Converting table '.$forum_db->prefix.'search_words…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'search_words…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'search_words');
-            echo 'Converting table '.$forum_db->prefix.'subscriptions…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'subscriptions…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'subscriptions');
-            echo 'Converting table '.$forum_db->prefix.'topics…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'topics…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'topics');
-            echo 'Converting table '.$forum_db->prefix.'users…<br/>'."\n"; flush();
+            echo 'Converting table '.$forum_db->prefix.'users…<br>'."\n"; flush();
             convert_table_utf8($forum_db->prefix.'users');
         }
 
@@ -1983,7 +1983,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Preparsing post '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Preparsing post '.$cur_item['id'].'…<br>'."\n";
             $preparse_errors = array();
 
             $query = array(
@@ -2040,7 +2040,7 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
         $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
         while ($cur_item = $forum_db->fetch_assoc($result))
         {
-            echo 'Preparsing signature '.$cur_item['id'].'…<br/>'."\n";
+            echo 'Preparsing signature '.$cur_item['id'].'…<br>'."\n";
             $preparse_errors = array();
 
             $query = array(
@@ -2161,9 +2161,9 @@ if (strpos($cur_version, '1.2') === 0 && $db_seems_utf8 && !isset($_GET['force']
 <!--[if IE 8 ]>    <html class="oldie ie8" lang="en" dir="ltr"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>PunBB Database Update</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/Oxygen/Oxygen.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/Oxygen/Oxygen.css">
     <script type="text/javascript" src="<?php echo $base_url ?>/include/js/punbb.common.js"></script>
 </head>
 <body>
@@ -2219,4 +2219,4 @@ $forum_db->end_transaction();
 $forum_db->close();
 
 if ($query_str != '')
-    exit('<script type="text/javascript">window.location="db_update.php'.$query_str.'"</script><br/>JavaScript seems to be disabled. <a href="db_update.php'.$query_str.'">Click here to continue</a>.');
+    exit('<script type="text/javascript">window.location="db_update.php'.$query_str.'"</script><br>JavaScript seems to be disabled. <a href="db_update.php'.$query_str.'">Click here to continue</a>.');

@@ -172,7 +172,7 @@ if (isset($forum_page['url']) AND $forum_user['is_guest'] AND !is_reserved_url($
         <hook id="fn_redirect_template_loaded"><![CDATA[
 if (isset($GLOBALS['action']) && $GLOBALS['action'] == 'redirect_confirm'){
     define('FORUM_ALLOW_INDEX', 0);
-    $forum_head['robots'] = '<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>';
+    $forum_head['robots'] = '<meta name="robots" content="noindex, nofollow">';
 }
         ]]></hook>
 

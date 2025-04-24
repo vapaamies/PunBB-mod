@@ -212,7 +212,7 @@ else
 <?php ($hook = get_hook('apr_pre_prune_from')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box select">
-                    <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span class="fld-label"><?php echo $lang_admin_prune['Prune from'] ?></span></label><br/>
+                    <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span class="fld-label"><?php echo $lang_admin_prune['Prune from'] ?></span></label><br>
                         <span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="prune_from">
                             <option value="all"><?php echo $lang_admin_prune['All forums'] ?></option>
 <?php
@@ -260,7 +260,7 @@ else
 <?php ($hook = get_hook('apr_pre_prune_days')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_prune['Days old'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_prune['Days old'] ?></span></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="req_prune_days" size="4" maxlength="4" required/></span>
                     </div>
                 </div>

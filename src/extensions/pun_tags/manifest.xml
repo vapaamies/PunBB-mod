@@ -349,7 +349,7 @@
                     ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br>
                                 <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_tags" value="<?php echo empty($_POST['pun_tags']) ? '' : forum_htmlencode($_POST['pun_tags']) ?>" size="70" maxlength="200"/></span>
                         </div>
                     </div>
@@ -360,7 +360,7 @@
                     ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><div class="fld-input"><?php echo $lang_pun_tags['Tags warning'] ?></div></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><div class="fld-input"><?php echo $lang_pun_tags['Tags warning'] ?></div></label><br>
                         </div>
                     </div>
                     <?php
@@ -421,7 +421,7 @@
                 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br>
                             <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_tags" value="<?php if (!empty($res_tags)) echo implode(', ', $res_tags); else echo ''; ?>" size="70" maxlength="200"/></span>
                     </div>
                 </div>
@@ -545,7 +545,7 @@
 
                 ?>
                 <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_tags['Topic tags']; ?></span><small><?php echo $lang_pun_tags['Enter tags']; ?></small></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="pun_tags" value="<?php if (!empty($res_tags)) echo implode(', ', $res_tags); else echo ''; ?>" size="70" maxlength="200"/></span>
                 </div>
             <?php

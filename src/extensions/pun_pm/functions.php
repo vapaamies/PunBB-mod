@@ -1406,7 +1406,7 @@ function pun_pm_send_form($username = '', $subject = '', $body = '', $message_id
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_pm['To'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_pm['To'] ?></span></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pm_receiver" value="<?php echo $username; ?>" size="70" maxlength="255" required/></span>
                     </div>
                 </div>
@@ -1415,7 +1415,7 @@ function pun_pm_send_form($username = '', $subject = '', $body = '', $message_id
 ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_pm['Subject'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_pm['Subject'] ?></span></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pm_subject" value="<?php echo $subject; ?>" size="70" maxlength="255"/></span>
                     </div>
                 </div>

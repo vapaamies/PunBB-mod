@@ -543,12 +543,12 @@ else if ($action == 'online' || $action == 'online_full')
     header('Expires: '.gmdate('D, d M Y H:i:s').' GMT');
     header('Pragma: public');
 
-    echo $lang_index['Guests online'].': '.forum_number_format($num_guests).'<br/>'."\n";
+    echo $lang_index['Guests online'].': '.forum_number_format($num_guests).'<br>'."\n";
 
     if ($_GET['action'] == 'online_full' && !empty($users))
-        echo $lang_index['Users online'].': '.implode($lang_index['Online list separator'], $users).'<br/>'."\n";
+        echo $lang_index['Users online'].': '.implode($lang_index['Online list separator'], $users).'<br>'."\n";
     else
-        echo $lang_index['Users online'].': '.forum_number_format($num_users).'<br/>'."\n";
+        echo $lang_index['Users online'].': '.forum_number_format($num_users).'<br>'."\n";
 
     exit;
 }
@@ -598,10 +598,10 @@ else if ($action == 'stats')
 
     ($hook = get_hook('ex_pre_stats_output')) ? eval($hook) : null;
 
-    echo sprintf($lang_index['No of users'], forum_number_format($stats['total_users'])).'<br/>'."\n";
-    echo sprintf($lang_index['Newest user'], '<a href="'.forum_link(global_link($forum_url['user'], $stats['last_user']['id'])).'">'.forum_htmlencode($stats['last_user']['username']).'</a>').'<br/>'."\n";
-    echo sprintf($lang_index['No of topics'], forum_number_format($stats['total_topics'])).'<br/>'."\n";
-    echo sprintf($lang_index['No of posts'], forum_number_format($stats['total_posts'])).'<br/>'."\n";
+    echo sprintf($lang_index['No of users'], forum_number_format($stats['total_users'])).'<br>'."\n";
+    echo sprintf($lang_index['Newest user'], '<a href="'.forum_link(global_link($forum_url['user'], $stats['last_user']['id'])).'">'.forum_htmlencode($stats['last_user']['username']).'</a>').'<br>'."\n";
+    echo sprintf($lang_index['No of topics'], forum_number_format($stats['total_topics'])).'<br>'."\n";
+    echo sprintf($lang_index['No of posts'], forum_number_format($stats['total_posts'])).'<br>'."\n";
 
     exit;
 }

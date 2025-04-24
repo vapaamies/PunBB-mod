@@ -710,7 +710,7 @@
                             $pollResultWidth = ((float)/**/$vote['num_vote'] / $vote_count * 100);
                             $vote_results .= '
                                 <dl>
-                                    <dt><strong>'.forum_number_format((float)/**/$vote['num_vote'] / $vote_count * 100).'%</strong><br/>('.$vote['num_vote'].')</dt>
+                                    <dt><strong>'.forum_number_format((float)/**/$vote['num_vote'] / $vote_count * 100).'%</strong><br>('.$vote['num_vote'].')</dt>
                                     <dd>'.forum_htmlencode($vote['answer'])
                                         .'<div class="'.(($winner_index == $num) ? 'winner' : '').(($pollResultWidth > 0) ? '' : ' poll-empty').'" style="width: '.$pollResultWidth.'%;"></div>
                                     </dd>

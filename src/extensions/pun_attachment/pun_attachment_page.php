@@ -260,8 +260,8 @@ if (isset($_GET['id']))
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['New name'] ?></span>
-                        </label><br/>
-                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pun_attach_new_name" size="10" maxlength="15"/></span><br/>
+                        </label><br>
+                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pun_attach_new_name" size="10" maxlength="15"/></span><br>
                     </div>
                 </div>
 <?php if ($pun_current_attach['post_id'] == '0'): ?>
@@ -269,8 +269,8 @@ if (isset($_GET['id']))
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Post id'] ?></span>
-                        </label><br/>
-                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pun_attach_new_post_id" size="10" maxlength="15"/></span><br/>
+                        </label><br>
+                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="pun_attach_new_post_id" size="10" maxlength="15"/></span><br>
                     </div>
                 </div>
 <?php endif; ?>

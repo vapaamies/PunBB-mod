@@ -1,27 +1,27 @@
 <?php
 
 /**
- * Project:     Securimage: A PHP class for creating and managing form CAPTCHA images<br/>
- * File:        securimage.php<br/>
+ * Project:     Securimage: A PHP class for creating and managing form CAPTCHA images<br>
+ * File:        securimage.php<br>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or any later version.<br/><br/>
+ * version 2.1 of the License, or any later version.<br><br>
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.<br/><br/>
+ * Lesser General Public License for more details.<br><br>
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA<br/><br/>
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA<br><br>
  *
  * Any modifications to the library should be indicated clearly in the source code
- * to inform users that the changes are not a part of the original software.<br/><br/>
+ * to inform users that the changes are not a part of the original software.<br><br>
  *
- * If you found this script useful, please take a quick moment to rate it.<br/>
+ * If you found this script useful, please take a quick moment to rate it.<br>
  * http://www.hotscripts.com/rate/49400.html  Thanks.
  *
  * @link http://www.phpcaptcha.org Securimage PHP CAPTCHA
@@ -76,7 +76,7 @@ class Securimage {
   var $image_height = 45;
 
   /**
-   * The image format for output.<br/>
+   * The image format for output.<br>
    * Valid options: SI_IMAGE_PNG, SI_IMAGE_JPEG, SI_IMAGE_GIF
    *
    * @var int
@@ -91,8 +91,8 @@ class Securimage {
   var $code_length = 4;
 
   /**
-   * The character set for individual characters in the image.<br/>
-   * Letters are converted to uppercase.<br/>
+   * The character set for individual characters in the image.<br>
+   * Letters are converted to uppercase.<br>
    * The font must support the letters or there may be problematic substitutions.
    *
    * @var string
@@ -115,16 +115,16 @@ class Securimage {
   var $use_wordlist = false;
 
   /**
-   * Whether to use a GD font instead of a TTF font.<br/>
-   * TTF offers more support and options, but use this if your PHP doesn't support TTF.<br/>
+   * Whether to use a GD font instead of a TTF font.<br>
+   * TTF offers more support and options, but use this if your PHP doesn't support TTF.<br>
    *
    * @var boolean
    */
   var $use_gd_font = true;
 
   /**
-   * The GD font to use.<br/>
-   * Internal gd fonts can be loaded by their number.<br/>
+   * The GD font to use.<br>
+   * Internal gd fonts can be loaded by their number.<br>
    * Alternatively, a file path can be given and the font will be loaded from file.
    *
    * @var mixed
@@ -132,9 +132,9 @@ class Securimage {
   var $gd_font_file = 'gdfonts/caveman.gdf';
 
   /**
-   * The approximate size of the font in pixels.<br/>
-   * This does not control the size of the font because that is determined by the GD font itself.<br/>
-   * This is used to aid the calculations of positioning used by this class.<br/>
+   * The approximate size of the font in pixels.<br>
+   * This does not control the size of the font because that is determined by the GD font itself.<br>
+   * This is used to aid the calculations of positioning used by this class.<br>
    *
    * @var int
    */
@@ -150,16 +150,16 @@ class Securimage {
   var $ttf_file = "./elephant.ttf";
 
   /**
-   * The font size.<br/>
-   * Depending on your version of GD, this should be specified as the pixel size (GD1) or point size (GD2)<br/>
+   * The font size.<br>
+   * Depending on your version of GD, this should be specified as the pixel size (GD1) or point size (GD2)<br>
    *
    * @var int
    */
   var $font_size = 24;
 
   /**
-   * The minimum angle in degrees, with 0 degrees being left-to-right reading text.<br/>
-   * Higher values represent a counter-clockwise rotation.<br/>
+   * The minimum angle in degrees, with 0 degrees being left-to-right reading text.<br>
+   * Higher values represent a counter-clockwise rotation.<br>
    * For example, a value of 90 would result in bottom-to-top reading text.
    *
    * @var int
@@ -167,8 +167,8 @@ class Securimage {
   var $text_angle_minimum = -20;
 
   /**
-   * The minimum angle in degrees, with 0 degrees being left-to-right reading text.<br/>
-   * Higher values represent a counter-clockwise rotation.<br/>
+   * The minimum angle in degrees, with 0 degrees being left-to-right reading text.<br>
+   * Higher values represent a counter-clockwise rotation.<br>
    * For example, a value of 90 would result in bottom-to-top reading text.
    *
    * @var int
@@ -176,7 +176,7 @@ class Securimage {
   var $text_angle_maximum = 20;
 
   /**
-   * The X-Position on the image where letter drawing will begin.<br/>
+   * The X-Position on the image where letter drawing will begin.<br>
    * This value is in pixels from the left side of the image.
    *
    * @var int
@@ -184,28 +184,28 @@ class Securimage {
   var $text_x_start = 8;
 
   /**
-   * Letters can be spaced apart at random distances.<br/>
-   * This is the minimum distance between two letters.<br/>
-   * This should be <i>at least</i> as wide as a font character.<br/>
-   * Small values can cause letters to be drawn over eachother.<br/>
+   * Letters can be spaced apart at random distances.<br>
+   * This is the minimum distance between two letters.<br>
+   * This should be <i>at least</i> as wide as a font character.<br>
+   * Small values can cause letters to be drawn over eachother.<br>
    *
    * @var int
    */
   var $text_minimum_distance = 30;
 
   /**
-   * Letters can be spaced apart at random distances.<br/>
-   * This is the maximum distance between two letters.<br/>
-   * This should be <i>at least</i> as wide as a font character.<br/>
-   * Small values can cause letters to be drawn over eachother.<br/>
+   * Letters can be spaced apart at random distances.<br>
+   * This is the maximum distance between two letters.<br>
+   * This should be <i>at least</i> as wide as a font character.<br>
+   * Small values can cause letters to be drawn over eachother.<br>
    *
    * @var int
    */
   var $text_maximum_distance = 33;
 
   /**
-   * The background color for the image.<br/>
-   * This should be specified in HTML hex format.<br/>
+   * The background color for the image.<br>
+   * This should be specified in HTML hex format.<br>
    * Make sure to include the preceding # sign!
    *
    * @var string
@@ -213,9 +213,9 @@ class Securimage {
   var $image_bg_color = "#FFFFFF";
 
   /**
-   * The text color to use for drawing characters.<br/>
-   * This value is ignored if $use_multi_text is set to true.<br/>
-   * Make sure this contrasts well with the background color.<br/>
+   * The text color to use for drawing characters.<br>
+   * This value is ignored if $use_multi_text is set to true.<br>
+   * Make sure this contrasts well with the background color.<br>
    * Specify the color in HTML hex format with preceding # sign
    *
    * @see Securimage::$use_multi_text
@@ -232,8 +232,8 @@ class Securimage {
   var $use_multi_text = true;
 
   /**
-   * String of HTML hex colors to use.<br/>
-   * Separate each possible color with commas.<br/>
+   * String of HTML hex colors to use.<br>
+   * Separate each possible color with commas.<br>
    * Be sure to precede each value with the # sign.
    *
    * @var string
@@ -249,7 +249,7 @@ class Securimage {
   var $use_transparent_text = true;
 
   /**
-   * The percentage of transparency, 0 to 100.<br/>
+   * The percentage of transparency, 0 to 100.<br>
    * A value of 0 is completely opaque, 100 is completely transparent (invisble)
    *
    * @see Securimage::$use_transparent_text
@@ -270,7 +270,7 @@ class Securimage {
   var $draw_lines = false;
 
   /**
-   * The color of the lines drawn on the image.<br/>
+   * The color of the lines drawn on the image.<br>
    * Use HTML hex format with preceding # sign.
    *
    * @see Securimage::$draw_lines
@@ -287,7 +287,7 @@ class Securimage {
   var $line_distance = 5;
 
   /**
-   * How thick to draw the lines in pixels.<br/>
+   * How thick to draw the lines in pixels.<br>
    * 1-3 is ideal depending on distance
    *
    * @see Securimage::$draw_lines
@@ -305,8 +305,8 @@ class Securimage {
   var $draw_angled_lines = false;
 
   /**
-   * Draw the lines over the text.<br/>
-   * If fales lines will be drawn before putting the text on the image.<br/>
+   * Draw the lines over the text.<br>
+   * If fales lines will be drawn before putting the text on the image.<br>
    * This can make the image hard for humans to read depending on the line thickness and distance.
    *
    * @var boolean
@@ -314,8 +314,8 @@ class Securimage {
   var $draw_lines_over_text = false;
 
   /**
-   * For added security, it is a good idea to draw arced lines over the letters to make it harder for bots to segment the letters.<br/>
-   * Two arced lines will be drawn over the text on each side of the image.<br/>
+   * For added security, it is a good idea to draw arced lines over the letters to make it harder for bots to segment the letters.<br>
+   * Two arced lines will be drawn over the text on each side of the image.<br>
    * This is currently expirimental and may be off in certain configurations.
    *
    * @var boolean
@@ -323,8 +323,8 @@ class Securimage {
   var $arc_linethrough = false;
 
   /**
-   * The colors or color of the arced lines.<br/>
-   * Use HTML hex notation with preceding # sign, and separate each value with a comma.<br/>
+   * The colors or color of the arced lines.<br>
+   * Use HTML hex notation with preceding # sign, and separate each value with a comma.<br>
    * This should be similar to your font color for single color images.
    *
    * @var string
@@ -332,7 +332,7 @@ class Securimage {
   var $arc_line_colors = "#8080ff";
 
   /**
-   * Full path to the WAV files to use to make the audio files, include trailing /.<br/>
+   * Full path to the WAV files to use to make the audio files, include trailing /.<br>
    * Name Files  [A-Z0-9].wav
    *
    * @since 1.0.1
@@ -384,8 +384,8 @@ class Securimage {
   var $correct_code;
 
   /**
-   * Class constructor.<br/>
-   * Because the class uses sessions, this will attempt to start a session if there is no previous one.<br/>
+   * Class constructor.<br>
+   * Because the class uses sessions, this will attempt to start a session if there is no previous one.<br>
    * If you do not start a session before calling the class, the constructor must be called before any
    * output is sent to the browser.
    *

@@ -73,7 +73,7 @@ else
                 </div>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_default_avatar['Default avatar url'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_default_avatar['Default avatar url'] ?></span></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[default_avatar_url]" size="50" value="<?php echo $forum_config['o_default_avatar_url'] ?>"/></span>
                     </div>
                 </div>

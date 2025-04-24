@@ -100,10 +100,10 @@ require_once $ext_info['path'] . '/subforums.class.php';
 // Including styles for subforums extension
 if (defined('FORUM_PAGE')) {
     if (file_exists($ext_info['path'] . '/styles/' . $forum_user['style'] . '/')) {
-        $forum_head['style_subforums'] = '<link rel="stylesheet" type="text/css" media="screen" href="' . $ext_info['url'] . '/styles/' . $forum_user['style'] . '/style.css"/>';
+        $forum_head['style_subforums'] = '<link rel="stylesheet" type="text/css" media="screen" href="' . $ext_info['url'] . '/styles/' . $forum_user['style'] . '/style.css">';
     }
     else {
-        $forum_head['style_subforums'] = '<link rel="stylesheet" type="text/css" media="screen" href="' . $ext_info['url'] . '/styles/Oxygen/style.css"/>';
+        $forum_head['style_subforums'] = '<link rel="stylesheet" type="text/css" media="screen" href="' . $ext_info['url'] . '/styles/Oxygen/style.css">';
     }
 }
 
@@ -338,7 +338,7 @@ if (!isset($parent_id)) {
     // Add full hierarchy
     echo '<div class="sf-set set' . (++$forum_page['item_count']) . '">' .
         '<div class="sf-box select">' .
-        '<label for="fld' . (++$forum_page['fld_count']) . '"><span>' . $subforums->lang['Set parent forum label'] . '</span></label><br/>' .
+        '<label for="fld' . (++$forum_page['fld_count']) . '"><span>' . $subforums->lang['Set parent forum label'] . '</span></label><br>' .
         '<span class="fld-input"><select id="fld' . $forum_page['fld_count'] . '" name="set_parent" onchange="changeParent(\'add_to_cat\', \'set_parent\');">';
 
     // -> Empty value
@@ -415,7 +415,7 @@ $query['SELECT'] .= ', f.parent_id';
 echo '<div class="sf-set set' . (++$forum_page['item_count']) . '">' .
     '<div class="sf-box select">' .
     '<label for="fld' . (++$forum_page['fld_count']) . '"><span>' .
-    $subforums->lang['Set parent forum label'] . '</span></label><br/>' .
+    $subforums->lang['Set parent forum label'] . '</span></label><br>' .
     '<span class="fld-input"><select id="fld' . $forum_page['fld_count'] .
     '" name="parent_id" onchange="changeParent(\'cat_id\', \'parent_id\');">';
 

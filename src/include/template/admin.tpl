@@ -4,7 +4,7 @@
 <!--[if IE 8 ]>    <html class="oldie ie8" <!-- forum_local -->> <![endif]-->
 <!--[if gt IE 8]><!--> <html <!-- forum_local -->> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- forum_head -->
 </head>
@@ -29,7 +29,7 @@
     <!-- forum_visit -->
 </div>
 
-<div class="hr"><hr/></div>
+<div class="hr"><hr></div>
 
 <div id="brd-main">
     <!-- forum_main_title -->
@@ -42,7 +42,7 @@
     <!-- forum_crumbs_end -->
 </div>
 
-<div class="hr"><hr/></div>
+<div class="hr"><hr></div>
 
 <div id="brd-about">
     <!-- forum_about -->

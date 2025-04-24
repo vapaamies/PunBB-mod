@@ -263,7 +263,7 @@ function show_attachments($attach_list, $cur_posting) {
     ?>
         <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
             <div class="sf-box text">
-                <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_attach['Attachment'] ?></span></label><br/>
+                <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_attach['Attachment'] ?></span></label><br>
                 <span class="fld-input">
                     <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $cur_posting['g_pun_attachment_upload_max_size']; ?>"/>
                     <input type="file" id="fld<?php echo $forum_page['fld_count'] ?>" name="attach_file"/>
@@ -308,7 +308,7 @@ function show_attachments_post($attach_list, $post_id, $cur_topic)
             $link = '<b>'.forum_htmlencode($attach['filename']).'</b>';
         $result .= '<p>'.$link;
         if ($show_image)
-            $result .= '<br/>'.forum_htmlencode($attach['filename']).'&nbsp;'.$attach_info;
+            $result .= '<br>'.forum_htmlencode($attach['filename']).'&nbsp;'.$attach_info;
         else
             $result .= '&nbsp;'.$attach_info;
         $result .= '</p>';

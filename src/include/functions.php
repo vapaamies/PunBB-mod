@@ -192,7 +192,7 @@ function forum_fix_request_uri()
 
         // Otherwise I am not aware of a work around...
         else
-            error('The web server you are using is not correctly setting the REQUEST_URI variable.<br/>This usually means you are using IIS6, or an unpatched IIS7. Please either disable SEF URLs, upgrade to IIS7 and install any available patches or try a different web server.');
+            error('The web server you are using is not correctly setting the REQUEST_URI variable.<br>This usually means you are using IIS6, or an unpatched IIS7. Please either disable SEF URLs, upgrade to IIS7 and install any available patches or try a different web server.');
     }
 }
 
@@ -3136,7 +3136,7 @@ function maintenance_message()
     while (preg_match('#<!-- ?forum_include "([^/\\\\]*?)" ?-->#', $tpl_maint, $cur_include))
     {
         if (!file_exists(FORUM_ROOT.'include/user/'.$cur_include[1]))
-            error('Unable to process user include &lt;!-- forum_include "'.forum_htmlencode($cur_include[1]).'" --&gt; from template maintenance.tpl.<br/>There is no such file in folder /include/user/.');
+            error('Unable to process user include &lt;!-- forum_include "'.forum_htmlencode($cur_include[1]).'" --&gt; from template maintenance.tpl.<br>There is no such file in folder /include/user/.');
 
         ob_start();
         include FORUM_ROOT.'include/user/'.$cur_include[1];
@@ -3213,7 +3213,7 @@ function redirect($destination_url, $message)
     // END SUBST - <!-- forum_local -->
 
     // START SUBST - <!-- forum_head -->
-    $forum_head['refresh'] = '<meta http-equiv="refresh" content="'.$forum_config['o_redirect_delay'].';URL='.str_replace(array('<', '>', '"'), array('&lt;', '&gt;', '&quot;'), $destination_url).'"/>';
+    $forum_head['refresh'] = '<meta http-equiv="refresh" content="'.$forum_config['o_redirect_delay'].';URL='.str_replace(array('<', '>', '"'), array('&lt;', '&gt;', '&quot;'), $destination_url).'">';
     $forum_head['title'] = '<title>'.$lang_common['Redirecting'].$lang_common['Title separator'].forum_htmlencode($forum_config['o_board_title']).'</title>';
 
     ob_start();
@@ -3269,7 +3269,7 @@ function redirect($destination_url, $message)
     while (preg_match('#<!-- ?forum_include "([^/\\\\]*?)" ?-->#', $tpl_redir, $cur_include))
     {
         if (!file_exists(FORUM_ROOT.'include/user/'.$cur_include[1]))
-            error('Unable to process user include &lt;!-- forum_include "'.forum_htmlencode($cur_include[1]).'" --&gt; from template redirect.tpl.<br/>There is no such file in folder /include/user/.');
+            error('Unable to process user include &lt;!-- forum_include "'.forum_htmlencode($cur_include[1]).'" --&gt; from template redirect.tpl.<br>There is no such file in folder /include/user/.');
 
         ob_start();
         include FORUM_ROOT.'include/user/'.$cur_include[1];
@@ -3363,7 +3363,7 @@ function error()
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>Error - <?php echo forum_htmlencode($forum_config['o_board_title']) ?></title>
     <style>
         strong  { font-weight: bold; }

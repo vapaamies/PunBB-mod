@@ -164,7 +164,7 @@ ob_start();
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Start at'] ?></span>
-                        </label><br/>
+                        </label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[start]" value="<?php echo $start ?>" size="10" maxlength="15"/></span>
                     </div>
                 </div>
@@ -172,15 +172,15 @@ ob_start();
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Number to show'] ?></span>
-                        </label><br/>
-                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[number]" value="<?php echo $number ?>" size="10" maxlength="15"/></span><br/>
+                        </label><br>
+                        <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[number]" value="<?php echo $number ?>" size="10" maxlength="15"/></span><br>
                     </div>
                 </div>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Filesize'] ?></span>
-                        </label><br/>
+                        </label><br>
                         <span class="fld-input">
                             <input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[size_start]" value="<?php echo (isset($form['size_start']) ? intval($form['size_start']) : '') ?>" size="10" maxlength="15"/>
                             <?php echo '&nbsp;'.$lang_attach['to'].'&nbsp;' ?>
@@ -192,7 +192,7 @@ ob_start();
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Owner'] ?></span>
-                        </label><br/>
+                        </label><br>
                         <span class="fld-input">
                             <select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[owner_id]">
                                 <option selected="selected" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -213,7 +213,7 @@ ob_start();
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Topic'] ?></span>
-                        </label><br/>
+                        </label><br>
                         <span class="fld-input">
                             <select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[topic]">
                                 <option selected="selected" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -234,7 +234,7 @@ ob_start();
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                             <span><?php echo $lang_attach['Order by'] ?></span>
-                        </label><br/>
+                        </label><br>
                         <span class="fld-input">
                             <select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[order]">
                                 <option <?php echo (!isset($form['order']) || $form['order'] == 'id') ? 'selected="selected"' : '' ?> value="id"><?php echo $lang_attach['Id'] ?></option>

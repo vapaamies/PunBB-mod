@@ -356,7 +356,7 @@ else if (isset($_GET['email']))
 <?php ($hook = get_hook('mi_email_pre_subject')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required longtext">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_misc['E-mail subject'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_misc['E-mail subject'] ?></span></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="req_subject" value="<?php echo(isset($_POST['req_subject']) ? forum_htmlencode($_POST['req_subject']) : (isset($_GET['req_subject']) ? forum_htmlencode($_GET['req_subject']) : '')) ?>" size="<?php echo FORUM_SUBJECT_MAXIMUM_LENGTH < 95 ? FORUM_SUBJECT_MAXIMUM_LENGTH : 95 ?>" maxlength="<?php echo FORUM_SUBJECT_MAXIMUM_LENGTH ?>" required/></span>
                     </div>
                 </div>
@@ -564,7 +564,7 @@ else if (isset($_GET['report']))
 <?php ($hook = get_hook('mi_report_pre_reason')) ? eval($hook) : null; ?>
                 <div class="txt-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="txt-box textarea required">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_misc['Reason'] ?></span> <small><?php echo $lang_misc['Reason help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_misc['Reason'] ?></span> <small><?php echo $lang_misc['Reason help'] ?></small></label><br>
                         <div class="txt-input"><span class="fld-input"><textarea id="fld<?php echo $forum_page['fld_count'] ?>" name="req_reason" rows="5" cols="60" required></textarea></span></div>
                     </div>
                 </div>

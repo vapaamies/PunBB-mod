@@ -43,7 +43,7 @@ function pun_stop_bots_generate_cache()
 
     if (!write_cache_file(FORUM_CACHE_DIR.'cache_pun_stop_bots.php', '<?php'."\n\n".'define(\'PUN_STOP_BOTS_CACHE_LOADED\', 1);'."\n\n".'$pun_stop_bots_questions = '.var_export($output, true).';'."\n\n".' ?>'))
     {
-        error('Unable to write cache_pun_stop_bots cache file to cache directory.<br/>Please make sure PHP has write access to the directory \'cache\'.', __FILE__, __LINE__);
+        error('Unable to write cache_pun_stop_bots cache file to cache directory.<br>Please make sure PHP has write access to the directory \'cache\'.', __FILE__, __LINE__);
     }
 }
 

@@ -290,7 +290,7 @@ if (isset($forum_page['errors']))
 <?php ($hook = get_hook('ed_pre_subject')) ? eval($hook) : null; ?>
 <?php if ($can_edit_subject): ?>                <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text required">
-                        <label for="fld<?php echo ++ $forum_page['fld_count'] ?>"><span><?php echo $lang_post['Topic subject'] ?></span></label><br/>
+                        <label for="fld<?php echo ++ $forum_page['fld_count'] ?>"><span><?php echo $lang_post['Topic subject'] ?></span></label><br>
                         <span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="req_subject" size="<?php echo FORUM_SUBJECT_MAXIMUM_LENGTH < 95 ? FORUM_SUBJECT_MAXIMUM_LENGTH : 95 ?>" maxlength="<?php echo FORUM_SUBJECT_MAXIMUM_LENGTH ?>" value="<?php echo forum_htmlencode(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" required/></span>
                     </div>
                 </div>

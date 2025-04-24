@@ -282,13 +282,13 @@
                     <!-- FIRST POST METHOD -->
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box sf-short text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['First Post Max Links'] ?></span><small><?php echo $lang_fancy_stop_spam['First Post Max Links Help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['First Post Max Links'] ?></span><small><?php echo $lang_fancy_stop_spam['First Post Max Links Help'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[fancy_stop_spam_max_links]" size="3" maxlength="3" value="<?php echo forum_htmlencode($forum_config['o_fancy_stop_spam_max_links']) ?>"/></span>
                         </div>
                     </div>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box sf-short text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['First Post Guest Max Links'] ?></span><small><?php echo $lang_fancy_stop_spam['First Post Guest Max Links Help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['First Post Guest Max Links'] ?></span><small><?php echo $lang_fancy_stop_spam['First Post Guest Max Links Help'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[fancy_stop_spam_max_guest_links]" size="3" maxlength="3" value="<?php echo forum_htmlencode($forum_config['o_fancy_stop_spam_max_guest_links']) ?>"/></span>
                         </div>
                     </div>
@@ -296,7 +296,7 @@
                     <!-- SFS API KEY -->
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['SFS API Key'] ?></span><small><?php echo $lang_fancy_stop_spam['SFS API Key Help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['SFS API Key'] ?></span><small><?php echo $lang_fancy_stop_spam['SFS API Key Help'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[fancy_stop_spam_sfs_api_key]" size="35" maxlength="64" value="<?php echo forum_htmlencode($forum_config['o_fancy_stop_spam_sfs_api_key']) ?>"/></span>
                         </div>
                     </div>
@@ -396,7 +396,7 @@
                 <div class="sf-set set hidden">
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['Honey field'] ?></span>
-                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br/>
+                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="email_confirm_xxx_<?php echo $fancy_stop_spam_post_key_id; ?>" size="35" autocomplete="off"/></span>
                     </div>
                 </div>
@@ -436,7 +436,7 @@
                 <div class="sf-set set hidden">
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['Honey field'] ?></span>
-                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br/>
+                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="email_confirm_xxx_<?php echo $fancy_stop_spam_post_key_id; ?>" size="35" autocomplete="off"/></span>
                     </div>
                 </div>
@@ -534,7 +534,7 @@
                 <div class="sf-set set hidden">
                     <div class="sf-box text">
                         <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_fancy_stop_spam['Honey field'] ?></span>
-                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br/>
+                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="email_confirm_xxx_<?php echo $fancy_stop_spam_post_key_id; ?>" size="35" autocomplete="off"/></span>
                     </div>
                 </div>
@@ -549,7 +549,7 @@
                 <div class="sf-set set hidden">
                     <div class="sf-box text">
                         <label><span><?php echo $lang_fancy_stop_spam['Honey field'] ?></span>
-                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br/>
+                        <small><?php echo $lang_fancy_stop_spam['Honey field help'] ?></small></label><br>
                         <span class="fld-input"><input type="text" name="email_confirm_xxx_<?php echo $fancy_stop_spam_post_key_id; ?>" size="35" autocomplete="off"/></span>
                     </div>
                 </div>

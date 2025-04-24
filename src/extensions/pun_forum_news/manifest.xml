@@ -330,13 +330,13 @@
 
                 if ($forum_page['page'] < $forum_page['num_pages'])
                 {
-                    $forum_page['nav']['last'] = '<link rel="last" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], $forum_page['num_pages']).'" title="'.$lang_common['Page'].' '.$forum_page['num_pages'].'"/>';
-                    $forum_page['nav']['next'] = '<link rel="next" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], ($forum_page['page'] + 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] + 1).'"/>';
+                    $forum_page['nav']['last'] = '<link rel="last" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], $forum_page['num_pages']).'" title="'.$lang_common['Page'].' '.$forum_page['num_pages'].'">';
+                    $forum_page['nav']['next'] = '<link rel="next" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], ($forum_page['page'] + 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] + 1).'">';
                 }
                 if ($forum_page['page'] > 1)
                 {
-                    $forum_page['nav']['prev'] = '<link rel="prev" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], ($forum_page['page'] - 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] - 1).'"/>';
-                    $forum_page['nav']['first'] = '<link rel="first" href="'.forum_link($forum_url['pun_forum_news']).'" title="'.$lang_common['Page'].' 1"/>';
+                    $forum_page['nav']['prev'] = '<link rel="prev" href="'.forum_sublink($forum_url['pun_forum_news'], $forum_url['pun_forum_news_page'], ($forum_page['page'] - 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] - 1).'">';
+                    $forum_page['nav']['first'] = '<link rel="first" href="'.forum_link($forum_url['pun_forum_news']).'" title="'.$lang_common['Page'].' 1">';
                 }
 
                 // Generate paging and posting links

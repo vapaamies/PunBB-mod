@@ -32,7 +32,7 @@ class Pun_poll {
                         </span>
                         <small><?php echo $lang_pun_poll['Question len limit'] ?></small>
                     </label>
-                    <br/>
+                    <br>
                     <span class="fld-input">
                         <input type="text" id="quest" name="question_of_poll" size="70" maxlength="150"  value="<?php echo forum_htmlencode($question); ?>">
                     </span>
@@ -55,7 +55,7 @@ class Pun_poll {
                         <label for="fld<?php echo $forum_page['fld_count'] ?>">
                             <span><?php echo $lang_pun_poll['Voting answer'] ?></span>
                         </label>
-                        <br/>
+                        <br>
                         <span class="fld-input">
                             <input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="poll_answer[]" size="35" maxlength="70" value="<?php echo ($poll_answers != null && isset($poll_answers[$opt_num]) ? forum_htmlencode($poll_answers[$opt_num]) : '') ?>"/>
                         </span>
@@ -70,7 +70,7 @@ class Pun_poll {
                     <label for="">
                         <span><?php echo $lang_pun_poll['Voting answer'] ?></span>
                     </label>
-                    <br/>
+                    <br>
                     <span class="fld-input">
                         <input id="fld" type="text" name="poll_answer[]" size="35" maxlength="70" value=""/>
                     </span>
@@ -134,7 +134,7 @@ class Pun_poll {
                         </span>
                         <small><?php echo $lang_pun_poll['Days voting note']; ?></small>
                     </label>
-                    <br/>
+                    <br>
                     <span class="fld-input">
                         <input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="allow_poll_days" size="5" maxlength="5" value="<?php echo $days_poll; ?>">
                     </span>
@@ -148,7 +148,7 @@ class Pun_poll {
                         </span>
                         <small><?php echo $lang_pun_poll['Maximum votes note']; ?></small>
                     </label>
-                    <br/>
+                    <br>
                     <span class="fld-input">
                         <input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="allow_poll_votes" size="5" maxlength="5" value="<?php echo ($votes_poll == null) ? ('') : ($votes_poll); ?>">
                     </span>

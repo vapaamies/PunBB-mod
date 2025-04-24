@@ -938,7 +938,7 @@ function parse_message($text, $hide_smilies)
 
     // Deal with newlines, tabs and multiple spaces
     $pattern = array("\n", "\t", '  ', '  ');
-    $replace = array('<br/>', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    $replace = array('<br>', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     $text = str_replace($pattern, $replace, $text);
 
     $return = ($hook = get_hook('ps_parse_message_pre_merge')) ? eval($hook) : null;
@@ -966,8 +966,8 @@ function parse_message($text, $hide_smilies)
         return $return;
 
     // Add paragraph tag around post, but make sure there are no empty paragraphs
-    $text = preg_replace('#<br/>\s*?<br/>((\s*<br/>)*)#i', "</p>$1<p>", $text);
-    $text = str_replace('<p><br/>', '<p>', $text);
+    $text = preg_replace('#<br>\s*?<br>((\s*<br>)*)#i', "</p>$1<p>", $text);
+    $text = str_replace('<p><br>', '<p>', $text);
     $text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
 
     $return = ($hook = get_hook('ps_parse_message_end')) ? eval($hook) : null;
@@ -1014,7 +1014,7 @@ function parse_signature($text)
 
     // Deal with newlines, tabs and multiple spaces
     $pattern = array("\n", "\t", '  ', '  ');
-    $replace = array('<br/>', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    $replace = array('<br>', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     $text = str_replace($pattern, $replace, $text);
 
     $return = ($hook = get_hook('ps_parse_signature_end')) ? eval($hook) : null;

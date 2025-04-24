@@ -306,7 +306,7 @@ if (!$section || $section == 'setup')
                         <div class="sf-box text">
                             <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                                 <span><?php echo $lang_admin_settings['Board title label'] ?></span>
-                            </label><br/>
+                            </label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[board_title]" size="50" maxlength="255" value="<?php echo forum_htmlencode($forum_config['o_board_title']) ?>"/></span>
                         </div>
                     </div>
@@ -315,7 +315,7 @@ if (!$section || $section == 'setup')
                         <div class="txt-box textarea">
                             <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                                 <span><?php echo $lang_admin_settings['Board description label'] ?></span> <small><?php echo $lang_admin_settings['Board description help'] ?></small>
-                            </label><br/>
+                            </label><br>
                             <div class="txt-input"><span class="fld-input"><textarea id="fld<?php echo $forum_page['fld_count'] ?>" name="form[board_desc]" cols="50" rows="3"><?php echo forum_htmlencode($forum_config['o_board_desc']) ?></textarea></span></div>
                         </div>
                     </div>
@@ -324,7 +324,7 @@ if (!$section || $section == 'setup')
                         <div class="sf-box select">
                             <label for="fld<?php echo ++$forum_page['fld_count'] ?>">
                                 <span><?php echo $lang_admin_settings['Default style label'] ?></span>
-                            </label><br/>
+                            </label><br>
                             <span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[default_style]">
 <?php
 
@@ -360,7 +360,7 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_default_language')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box select">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Default language label'] ?></span><small><?php echo $lang_admin_settings['Default language help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Default language label'] ?></span><small><?php echo $lang_admin_settings['Default language help'] ?></small></label><br>
                             <span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[default_lang]">
 <?php
 
@@ -383,7 +383,7 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_default_timezone')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box select">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Default timezone label'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Default timezone label'] ?></span></label><br>
                             <span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[default_timezone]">
                                 <option value="-12"<?php if ($forum_config['o_default_timezone'] == -12) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-12:00'] ?></option>
                                 <option value="-11"<?php if ($forum_config['o_default_timezone'] == -11) echo ' selected="selected"' ?>><?php echo $lang_profile['UTC-11:00'] ?></option>
@@ -438,14 +438,14 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_time_format')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Time format label'] ?></span><small><?php printf($lang_admin_settings['Current format'], format_time(time(), 2, null, $forum_config['o_time_format']), $lang_admin_settings['External format help']) ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Time format label'] ?></span><small><?php printf($lang_admin_settings['Current format'], format_time(time(), 2, null, $forum_config['o_time_format']), $lang_admin_settings['External format help']) ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[time_format]" size="25" maxlength="25" value="<?php echo forum_htmlencode($forum_config['o_time_format']) ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_date_format')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Date format label'] ?></span><small><?php printf($lang_admin_settings['Current format'], format_time(time(), 1, $forum_config['o_date_format'], null, true), $lang_admin_settings['External format help']) ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Date format label'] ?></span><small><?php printf($lang_admin_settings['Current format'], format_time(time(), 1, $forum_config['o_date_format'], null, true), $lang_admin_settings['External format help']) ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[date_format]" size="25" maxlength="25" value="<?php echo forum_htmlencode($forum_config['o_date_format']) ?>"/></span>
                         </div>
                     </div>
@@ -468,21 +468,21 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_visit_timeout')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Visit timeout label'] ?></span><small><?php echo $lang_admin_settings['Visit timeout help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Visit timeout label'] ?></span><small><?php echo $lang_admin_settings['Visit timeout help'] ?></small></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[timeout_visit]" size="5" maxlength="5" value="<?php echo $forum_config['o_timeout_visit'] ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_online_timeout')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Online timeout label'] ?></span><small><?php echo $lang_admin_settings['Online timeout help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Online timeout label'] ?></span><small><?php echo $lang_admin_settings['Online timeout help'] ?></small></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[timeout_online]" size="5" maxlength="5" value="<?php echo $forum_config['o_timeout_online'] ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_redirect_time')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Redirect time label'] ?></span><small><?php echo $lang_admin_settings['Redirect time help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Redirect time label'] ?></span><small><?php echo $lang_admin_settings['Redirect time help'] ?></small></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[redirect_delay]" size="5" maxlength="5" value="<?php echo $forum_config['o_redirect_delay'] ?>"/></span>
                         </div>
                     </div>
@@ -505,21 +505,21 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_topics_per_page')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Topics per page label'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Topics per page label'] ?></span></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[disp_topics_default]" size="5" maxlength="3" value="<?php echo $forum_config['o_disp_topics_default'] ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_posts_per_page')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Posts per page label'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Posts per page label'] ?></span></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[disp_posts_default]" size="5" maxlength="3" value="<?php echo $forum_config['o_disp_posts_default'] ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_setup_pre_topic_review')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box frm-short text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Topic review label'] ?></span><small><?php echo $lang_admin_settings['Topic review help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Topic review label'] ?></span><small><?php echo $lang_admin_settings['Topic review help'] ?></small></label><br>
                             <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[topic_review]" size="5" maxlength="3" value="<?php echo $forum_config['o_topic_review'] ?>"/></span>
                         </div>
                     </div>
@@ -579,7 +579,7 @@ if (!$section || $section == 'setup')
 <?php ($hook = get_hook('aop_setup_pre_url_scheme')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box select">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['URL scheme label'] ?></span><small><?php echo $lang_admin_settings['URL scheme help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['URL scheme label'] ?></span><small><?php echo $lang_admin_settings['URL scheme help'] ?></small></label><br>
                             <span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="form[sef]">
 <?php
 
@@ -845,14 +845,14 @@ else if ($section == 'features')
 <?php ($hook = get_hook('aop_features_message_caps_fieldset_end')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Indent size label'] ?></span><small><?php echo $lang_admin_settings['Indent size help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Indent size label'] ?></span><small><?php echo $lang_admin_settings['Indent size help'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[indent_num_spaces]" size="5" maxlength="3" value="<?php echo $forum_config['o_indent_num_spaces'] ?>"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('aop_features_pre_quote_depth')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Quote depth label'] ?></span><small><?php echo $lang_admin_settings['Quote depth help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Quote depth label'] ?></span><small><?php echo $lang_admin_settings['Quote depth help'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[quote_depth]" size="5" maxlength="3" value="<?php echo $forum_config['o_quote_depth'] ?>"/></span>
                     </div>
                 </div>
@@ -908,14 +908,14 @@ else if ($section == 'features')
                 </div>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Max sig length label'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Max sig length label'] ?></span></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[sig_length]" size="5" maxlength="5" value="<?php echo $forum_config['p_sig_length'] ?>"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('aop_features_pre_max_sig_lines')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Max sig lines label'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Max sig lines label'] ?></span></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[sig_lines]" size="5" maxlength="3" value="<?php echo $forum_config['p_sig_lines'] ?>"/></span>
                     </div>
                 </div>
@@ -945,28 +945,28 @@ else if ($section == 'features')
 <?php ($hook = get_hook('aop_features_pre_avatar_directory')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar directory label'] ?></span><small><?php echo $lang_admin_settings['Avatar directory help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar directory label'] ?></span><small><?php echo $lang_admin_settings['Avatar directory help'] ?></small></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[avatars_dir]" size="35" maxlength="50" value="<?php echo forum_htmlencode($forum_config['o_avatars_dir']) ?>"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('aop_features_pre_avatar_max_width')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max width label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max width help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max width label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max width help'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[avatars_width]" size="6" maxlength="5" value="<?php echo $forum_config['o_avatars_width'] ?>"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('aop_features_pre_avatar_max_height')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max height label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max height help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max height label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max height help'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[avatars_height]" size="6" maxlength="5" value="<?php echo $forum_config['o_avatars_height'] ?>"/></span>
                     </div>
                 </div>
 <?php ($hook = get_hook('aop_features_pre_avatar_max_size')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max size label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max size help'] ?></small></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Avatar Max size label'] ?></span><small><?php echo $lang_admin_settings['Avatar Max size help'] ?></small></label><br>
                         <span class="fld-input"><input type="number" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[avatars_size]" size="6" maxlength="6" value="<?php echo $forum_config['o_avatars_size'] ?>"/></span>
                     </div>
                 </div>
@@ -1116,7 +1116,7 @@ else if ($section == 'announcements')
 <?php ($hook = get_hook('aop_announcements_pre_announcement_heading')) ? eval($hook) : null; ?>
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box text">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Announcement heading label'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Announcement heading label'] ?></span></label><br>
                         <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[announcement_heading]" size="50" maxlength="255" value="<?php echo forum_htmlencode($forum_config['o_announcement_heading']) ?>"/></span>
                     </div>
                 </div>
@@ -1386,14 +1386,14 @@ else if ($section == 'email')
 <?php ($hook = get_hook('aop_email_pre_admin_email')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Admin e-mail'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Admin e-mail'] ?></span></label><br>
                             <span class="fld-input"><input type="email" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[admin_email]" size="50" maxlength="80" value="<?php echo forum_htmlencode($forum_config['o_admin_email']) ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_email_pre_webmaster_email')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Webmaster e-mail label'] ?></span><small><?php echo $lang_admin_settings['Webmaster e-mail help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['Webmaster e-mail label'] ?></span><small><?php echo $lang_admin_settings['Webmaster e-mail help'] ?></small></label><br>
                             <span class="fld-input"><input type="email" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[webmaster_email]" size="50" maxlength="80" value="<?php echo forum_htmlencode($forum_config['o_webmaster_email']) ?>"/></span>
                         </div>
                     </div>
@@ -1426,21 +1426,21 @@ $forum_page['group_count'] = $forum_page['item_count'] = 0;
 <?php ($hook = get_hook('aop_email_pre_smtp_host')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP address label'] ?></span><small><?php echo $lang_admin_settings['SMTP address help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP address label'] ?></span><small><?php echo $lang_admin_settings['SMTP address help'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[smtp_host]" size="35" maxlength="100" value="<?php echo forum_htmlencode($forum_config['o_smtp_host']) ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_email_pre_smtp_user')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP username label'] ?></span><small><?php echo $lang_admin_settings['SMTP username help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP username label'] ?></span><small><?php echo $lang_admin_settings['SMTP username help'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[smtp_user]" size="35" maxlength="50" value="<?php echo forum_htmlencode($forum_config['o_smtp_user']) ?>"/></span>
                         </div>
                     </div>
 <?php ($hook = get_hook('aop_email_pre_smtp_pass')) ? eval($hook) : null; ?>
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP password label'] ?></span><small><?php echo $lang_admin_settings['SMTP password help'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_settings['SMTP password label'] ?></span><small><?php echo $lang_admin_settings['SMTP password help'] ?></small></label><br>
                             <span class="fld-input"><input type="password" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[smtp_pass]" size="35" maxlength="50" value="<?php echo forum_htmlencode($forum_config['o_smtp_pass']) ?>"/></span>
                         </div>
                     </div>

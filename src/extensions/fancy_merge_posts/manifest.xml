@@ -74,7 +74,7 @@
 
                     <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                         <div class="sf-box text">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $fancy_merge_posts['Dont merge timeout'] ?></span><small><?php echo $fancy_merge_posts['Dont merge timeout hint'] ?></small></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $fancy_merge_posts['Dont merge timeout'] ?></span><small><?php echo $fancy_merge_posts['Dont merge timeout hint'] ?></small></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[fancy_merge_posts_dm_interval]" size="6" maxlength="6" value="<?php echo forum_htmlencode($forum_config['o_fancy_merge_posts_dm_interval']) ?>"/></span>
                         </div>
                     </div>

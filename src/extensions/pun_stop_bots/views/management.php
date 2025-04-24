@@ -36,11 +36,11 @@
                     <legend><span><?php echo $lang_pun_stop_bots['Management add question']; ?></span></legend>
                     <div class="mf-box">
                         <div class="mf-field mf-field1">
-                            <label for="fld1"><span class="fld-label"><?php echo $lang_pun_stop_bots['Management question']; ?></span></label><br/>
+                            <label for="fld1"><span class="fld-label"><?php echo $lang_pun_stop_bots['Management question']; ?></span></label><br>
                             <span class="fld-input"><input type="text" maxlength="60" size="24" name="question" id="fld1"/></span>
                         </div>
                         <div class="mf-field">
-                            <label for="fld2"><span class="fld-label"><?php echo $lang_pun_stop_bots['Management answers']; ?></span></label><br/>
+                            <label for="fld2"><span class="fld-label"><?php echo $lang_pun_stop_bots['Management answers']; ?></span></label><br>
                             <span class="fld-input"><input type="text" maxlength="60" size="24" name="answers" id="fld2"/></span>
                         </div>
                         <div class="mf-field">
@@ -67,11 +67,11 @@
                     <legend><span><?php echo $lang_pun_stop_bots['Management existing question'] ?></span></legend>
                     <div class="mf-box">
                         <div class="mf-field mf-field1">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_stop_bots['Management question'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_stop_bots['Management question'] ?></span></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="question[<?php echo $question_id ?>]" value="<?php echo forum_htmlencode($stop_bots_question['question']) ?>" size="24" maxlength="60"/></span>
                         </div>
                         <div class="mf-field">
-                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_stop_bots['Management answers'] ?></span></label><br/>
+                            <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_stop_bots['Management answers'] ?></span></label><br>
                             <span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="answers[<?php echo $question_id ?>]" value="<?php echo forum_htmlencode($stop_bots_question['answers']) ?>" size="24" maxlength="60"/></span>
                         </div>
                         <div class="mf-field">

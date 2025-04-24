@@ -47,7 +47,7 @@ $lang_misc = array(
 'Select all' => 'Выбрать всё',
 
 // Hostname lookup
-'Hostname lookup' => 'IP-адрес: %1$s<br/>Имя узла: %2$s<br/><br/>%3$s',
+'Hostname lookup' => 'IP-адрес: %1$s<br>Имя узла: %2$s<br><br>%3$s',
 'Show more users' => 'Показать пользователей с этим IP',
 
 // Moderate forum

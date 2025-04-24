@@ -23,7 +23,7 @@ $forum_page['hidden_fields'] = array(
     'hash' => '<input type="hidden" name="hash" value="'.forum_htmlencode($_GET['hash']).'"/>',
 );
 define('FORUM_ALLOW_INDEX', 0);
-$forum_head['robots'] = '<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>';
+$forum_head['robots'] = '<meta name="robots" content="noindex, nofollow">';
 
 define('FORUM_PAGE', 'redirect-links-form');
 require FORUM_ROOT.'header.php';

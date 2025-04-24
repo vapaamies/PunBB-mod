@@ -97,7 +97,7 @@ if (isset($_POST['move_posts']))
             <fieldset class="frm-group group<?php echo ++$forum_page['group_count'] ?>">
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box select">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_move_posts['Destination forum'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_move_posts['Destination forum'] ?></span></label><br>
                         <span class="fld-input"><select id="<?php echo $forum_page['fld_count'] ?>" name="move_to_forum">
 <?php
     $forum_page['cur_category'] = 0;
@@ -205,7 +205,7 @@ if (isset($_POST['move_posts_s']))
             <fieldset class="frm-group group<?php echo ++$forum_page['group_count'] ?>">
                 <div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
                     <div class="sf-box select">
-                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_move_posts['Destination topic'] ?></span></label><br/>
+                        <label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_pun_move_posts['Destination topic'] ?></span></label><br>
                         <span class="fld-input"><select id="<?php echo $forum_page['fld_count'] ?>" name="move_to_topic">
 <?php
 
