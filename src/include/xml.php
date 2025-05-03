@@ -152,24 +152,24 @@ function validate_manifest($xml_array, $folder_name)
             $errors[] = $lang_admin_ext['extension/engine error2'];
 
         if (!isset($ext['id']) || $ext['id'] == '')
-            $errors[] = $lang_admin_ext['extension/id error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/id');
         else if ($ext['id'] != $folder_name)
             $errors[] = $lang_admin_ext['extension/id error2'];
 
         if (!isset($ext['title']) || $ext['title'] == '')
-            $errors[] = $lang_admin_ext['extension/title error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/title');
         if (!isset($ext['version']) || $ext['version'] == '' || preg_match('/[^a-z0-9\- \.]+/i', $ext['version']))
-            $errors[] = $lang_admin_ext['extension/version error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/version');
         if (!isset($ext['description']) || $ext['description'] == '')
-            $errors[] = $lang_admin_ext['extension/description error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/description');
         if (!isset($ext['author']) || $ext['author'] == '')
-            $errors[] = $lang_admin_ext['extension/author error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/author');
         if (!isset($ext['minversion']) || $ext['minversion'] == '')
-            $errors[] = $lang_admin_ext['extension/minversion error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/minversion');
         if (isset($ext['minversion']) && version_compare(clean_version($forum_config['o_cur_version']), clean_version($ext['minversion']), '<'))
             $errors[] = sprintf($lang_admin_ext['extension/minversion error2'], $ext['minversion']);
         if (!isset($ext['maxtestedon']) || $ext['maxtestedon'] == '')
-            $errors[] = $lang_admin_ext['extension/maxtestedon error'];
+            $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/maxtestedon');
 
         if (isset($ext['note']))
         {
@@ -185,13 +185,13 @@ function validate_manifest($xml_array, $folder_name)
         if (isset($ext['hooks']) && is_array($ext['hooks']))
         {
             if (!isset($ext['hooks']['hook']) || !is_array($ext['hooks']['hook']))
-                $errors[] = $lang_admin_ext['extension/hooks/hook error'];
+                $errors[] = sprintf($lang_admin_ext['extension/element error'], 'extension/hooks/hook');
             else
             {
                 foreach ($ext['hooks']['hook'] as $hook)
                 {
                     if (!isset($hook['content']) || $hook['content'] == '')
-                        $errors[] = $lang_admin_ext['extension/hooks/hook error'];
+                        $errors[] =sprintf($lang_admin_ext['extension/element error'], 'extension/hooks/hook');
                     if (!isset($hook['attributes']['id']) || $hook['attributes']['id'] == '')
                         $errors[] = $lang_admin_ext['extension/hooks/hook error2'];
                     if (isset($hook['attributes']['priority']) && (!ctype_digit($hook['attributes']['priority']) || $hook['attributes']['priority'] < 0 || $hook['attributes']['priority'] > 10))
